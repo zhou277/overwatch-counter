@@ -1,18 +1,21 @@
 # Overwatch Counter
 
-当前版本：**v2.6**
+当前版本：**v2.7**
 
-## v2.6 更新
+## v2.7 更新
 
-- 为所有英雄的克制关系增加简短的 **克制原因**
-- “谁克制我”和“我克制谁”两边都显示原因
-- 原因优先解释技能机制、射程、机动性、控制、禁疗、光束/弹道交互
-- 保持 T / C / S 分组
-- 保持 PC / 手机响应式布局
-- 保持单 HTML GitHub Pages 部署方式
-
-> 克制关系和原因用于实战快速参考，不是暴雪官方克制排名。
+- 新增 OW 风格网页图标（favicon）
+- 图标直接内嵌在 `index.html` 中
+- 不增加额外图片或 assets 目录
+- GitHub Pages 仍然只需上传单个 `index.html`
+- 浏览器标签页、收藏页会显示该图标
 
 ## 部署
 
 直接用新版 `index.html` 覆盖 GitHub Pages 仓库根目录中的旧文件即可。
+
+```text
+overwatch-counter/
+├── index.html
+└── README.md
+```
