@@ -6,7 +6,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" type="image/svg+xml" />
 <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
-<title>守望先锋英雄克制查询 v2.7</title>
+<title>守望先锋英雄克制查询 v2.8</title>
 <style>
 :root{
   --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
@@ -269,6 +269,19 @@ button,input,select{touch-action:manipulation}
 .rank-item{align-items:flex-start}
 @media(max-width:760px){.rank-item{padding:10px}.rank-reason{font-size:12px;line-height:1.6}}
 
+
+.tips-layout{display:none}.tips-layout.active{display:block}
+.tips-panel{background:rgba(24,29,39,.94);border:1px solid var(--line);border-radius:16px;padding:20px}
+.tips-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.tips-title{font-size:24px;font-weight:800}.tips-subtitle{font-size:13px;color:var(--muted);line-height:1.7}
+.tips-section-title{margin:20px 0 10px;font-size:16px;font-weight:800}
+.tips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tip-card{background:#121823;border:1px solid var(--line);border-radius:13px;padding:13px 14px;display:flex;gap:11px;align-items:flex-start}
+.tip-card.top10{border-left:4px solid var(--accent)}
+.tip-rank{flex:0 0 54px;font-size:12px;font-weight:900;color:var(--accent);background:#252e3e;border-radius:8px;padding:6px 7px;text-align:center}
+.tip-card.secondary .tip-rank{color:#b9c4d4}.tip-text{font-size:14px;line-height:1.75;color:#e7edf5}
+@media(max-width:760px){.tips-panel{padding:14px 11px}.tips-title{font-size:20px}.tips-grid{grid-template-columns:1fr}.tip-card{padding:11px}.tip-rank{flex-basis:50px}.tip-text{font-size:13px}}
+
 </style>
 </head>
 <body>
@@ -276,13 +289,14 @@ button,input,select{touch-action:manipulation}
 <header>
   <div>
     <h1>守望先锋英雄克制查询</h1>
-    <div class="subtitle">v2.7 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+    <div class="subtitle">v2.8 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
   </div>
 </header>
 
 <div class="tabs">
   <button class="tab active" id="counterTab">英雄克制</button>
   <button class="tab" id="mapTab">地图推荐</button>
+  <button class="tab" id="tipsTab">上分建议</button>
 </div>
 <div class="search" id="counterSearch">
   <input id="search" placeholder="搜索英雄，例如：毛妹 / Winston / 安娜" />
@@ -302,6 +316,42 @@ button,input,select{touch-action:manipulation}
 <div class="layout map-layout" id="mapLayout">
   <div class="map-list" id="mapList"></div>
   <div class="detail" id="mapDetail"></div>
+</div>
+
+<div class="tips-layout" id="tipsLayout">
+  <div class="tips-panel">
+    <div class="tips-head">
+      <div>
+        <div class="tips-title">OW 上分建议 Top 22</div>
+        <div class="tips-subtitle">把最影响胜率的习惯先做好，再去追求操作上限。以下内容更偏实战与长期稳定上分。</div>
+      </div>
+      <div class="badge">通用 · 全位置适用</div>
+    </div>
+    <div class="tips-section-title">Top 10 · 核心原则</div>
+    <div class="tips-grid"><div class="tip-card top10"><div class="tip-rank">Top 1</div><div class="tip-text">使用掩体，占领高地。优先利用地图资源，而不是站在空地里和对手硬拼。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 2</div><div class="tip-text">不要脱离团队单独玩游戏。尽量等五人集结后再开团，避免无意义地轮流送人。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 3</div><div class="tip-text">技能尽量打满收益，想清楚再交。大招优先考虑配合，通常比单独释放收益更高。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 4</div><div class="tip-text">主动沟通关键信息，包括但不限于：准备开大、需要集火、自己被切、敌人绕后、关键技能已交等。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 5</div><div class="tip-text">优先使用自己真正熟练的英雄。不要因为队友一句话就随意换到自己不熟的英雄。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 6</div><div class="tip-text">辅助之所以叫“辅助”，而不是“奶妈”，是因为辅助同样需要主动输出、施压和补伤害。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 7</div><div class="tip-text">主动复盘，学习高水平玩家和主播。玩得久不等于一直在进步，关键是发现并修正重复错误。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 8</div><div class="tip-text">了解英雄的核心优势，并尽可能把优势发挥到极致。不要拿长枪打近战，也不要拿近战英雄长期在远处消耗。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 9</div><div class="tip-text">尽量避免和心态差、容易上头的人长期组队。辅助玩家如果双排，最好找一个稳定、愿意沟通的队友。</div></div>
+<div class="tip-card top10"><div class="tip-rank">Top 10</div><div class="tip-text">存活本身就是收益。不要为了一个残血目标贪死，活着才能持续制造压力、治疗和控制。</div></div></div>
+    <div class="tips-section-title">Top 11–22 · 补充建议</div>
+    <div class="tips-grid"><div class="tip-card secondary"><div class="tip-rank">Top 11</div><div class="tip-text">关注右上角击杀信息：击杀后推进，掉人后及时撤退。建议打开击杀音效，减少漏看信息。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 12</div><div class="tip-text">优先从自己身上找可改进的问题，而不是第一时间责怪队友。稳定心态比争论对错更有利于上分。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 13</div><div class="tip-text">多按 TAB：确认敌我阵容、判断资源倾斜、观察谁在被重点照顾，并大致追踪双方大招资源。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 14</div><div class="tip-text">保持走位，但不要无意义地频繁跳跃。跳跃轨迹固定，而且被击退时位移更远；需要规避爆头时可以结合左右移动和蹲起。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 15</div><div class="tip-text">打排位前先热身。哪怕只花 5–10 分钟，也能明显减少第一局手冷、瞄准不稳和反应迟钝。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 16</div><div class="tip-text">不要连败后继续机械排位。状态差时先停下来，去做点自己真正享受的事情，等情绪恢复再回来。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 17</div><div class="tip-text">所有位置都建议打开队友血条显示。你需要知道谁正在掉血、谁需要资源、谁还能继续作战。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 18</div><div class="tip-text">优先攻击高威胁或有明显弱点的目标，不要习惯性只刷坦克。能快速制造人数差的目标通常价值更高。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 19</div><div class="tip-text">熟悉地图、高台、掩体和血包位置，并主动跑图练习。根据复活时间和出生点距离判断临时换英雄是否值得。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 20</div><div class="tip-text">双辅助优先互保。辅助互相照顾，往往比两个人都只盯着坦克治疗更容易维持团队整体存活。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 21</div><div class="tip-text">鼠标灵敏度以“能稳定完成大约 180° 转身，同时保持细微瞄准控制”为参考，不必盲目照搬他人的 DPI。</div></div>
+<div class="tip-card secondary"><div class="tip-rank">Top 22</div><div class="tip-text">保持合理作息和规律运动。睡眠、体能和专注度都会直接影响反应速度、瞄准稳定性和判断力。</div></div></div>
+  </div>
 </div>
 
 <footer>
@@ -609,14 +659,19 @@ function renderMapDetail(){
 
 function setTab(tab){
   const counter = tab==="counter";
+  const map = tab==="map";
+  const tips = tab==="tips";
   document.getElementById("counterTab").classList.toggle("active",counter);
-  document.getElementById("mapTab").classList.toggle("active",!counter);
+  document.getElementById("mapTab").classList.toggle("active",map);
+  document.getElementById("tipsTab").classList.toggle("active",tips);
   document.getElementById("counterLayout").classList.toggle("hidden",!counter);
   document.getElementById("counterSearch").style.display=counter?"flex":"none";
-  document.getElementById("mapLayout").classList.toggle("active",!counter);
+  document.getElementById("mapLayout").classList.toggle("active",map);
+  document.getElementById("tipsLayout").classList.toggle("active",tips);
 }
 document.getElementById("counterTab").onclick=()=>setTab("counter");
 document.getElementById("mapTab").onclick=()=>setTab("map");
+document.getElementById("tipsTab").onclick=()=>setTab("tips");
 renderMaps(); renderMapDetail();
 
 </script>

@@ -1,21 +1,27 @@
 # Overwatch Counter
 
-当前版本：**v2.7**
+当前版本：**v2.8**
 
-## v2.7 更新
+## v2.8 更新
 
-- 新增 OW 风格网页图标（favicon）
-- 图标直接内嵌在 `index.html` 中
-- 不增加额外图片或 assets 目录
-- GitHub Pages 仍然只需上传单个 `index.html`
-- 浏览器标签页、收藏页会显示该图标
+新增 **上分建议** 页面，与“英雄克制 / 地图推荐”并列。
+
+- Top 1–10：核心原则
+- Top 11–22：补充建议
+- 统一原文标点与表达
+- PC 端双列卡片
+- 手机端自动单列布局
+
+## 当前功能
+
+- 英雄克制查询
+- T / C / S TOP 3
+- 克制原因
+- 地图推荐
+- 上分建议 Top 22
+- PC / 手机响应式布局
+- 单 HTML GitHub Pages 部署
 
 ## 部署
 
-直接用新版 `index.html` 覆盖 GitHub Pages 仓库根目录中的旧文件即可。
-
-```text
-overwatch-counter/
-├── index.html
-└── README.md
-```
+直接用新版 `index.html` 覆盖仓库根目录旧文件即可。
