@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>守望先锋英雄克制查询 v2.4</title>
+<title>守望先锋英雄克制查询 v2.5</title>
 <style>
 :root{
   --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
@@ -266,7 +266,7 @@ button,input,select{touch-action:manipulation}
 <header>
   <div>
     <h1>守望先锋英雄克制查询</h1>
-    <div class="subtitle">v2.4 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+    <div class="subtitle">v2.5 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
   </div>
 </header>
 
@@ -280,7 +280,7 @@ button,input,select{touch-action:manipulation}
     <option value="全部">全部位置</option>
     <option value="坦克">T · 坦克</option>
     <option value="输出">C · 输出</option>
-    <option value="支援">辅助</option>
+    <option value="支援">S · 辅助</option>
   </select>
 </div>
 
@@ -296,7 +296,7 @@ button,input,select{touch-action:manipulation}
 
 <footer>
 克制关系用于快速决策，不代表绝对胜负；地图、阵容、技能交换、玩家熟练度都会明显改变对局结果。英雄对位已细分为 T / C / 辅助三个位置，每个位置分别显示克制 TOP 3 与被克制 TOP 3。当前版本已针对手机窄屏和触控操作优化。
-<br>单文件发布版：页面样式、交互逻辑、英雄克制数据和地图推荐数据均已内嵌，无需额外资源文件。<br>英雄列表已更新为 53 名，并按 T 坦克 → C 输出 → 辅助分组；英雄名称统一采用国服官方显示名。</footer>
+<br>单文件发布版：页面样式、交互逻辑、英雄克制数据和地图推荐数据均已内嵌，无需额外资源文件。<br>英雄列表已重新按 T 坦克 → C 输出 → S 辅助严格分组，并自动移除重复英雄。当前共 53 名。</footer>
 </div>
 
 <script>
@@ -327,6 +327,7 @@ const heroes = [
 {name:"死神", aliases:["reaper"], role:"输出", strong:["温斯顿", "路霸", "莱因哈特"], weak:["艾什", "黑百合", "法老之鹰"], note:"近距离对大体型目标伤害很高，核心是利用传送/幽灵形态接近并安全撤出。"},
 {name:"黑影", aliases:["sombra"], role:"输出", strong:["破坏球", "末日铁拳", "源氏"], weak:["卡西迪", "布丽吉塔", "托比昂"], note:"适合破坏高机动英雄节奏。不要只追求单杀，黑入关键目标帮助团队集火更稳定。"},
 {name:"士兵：76", aliases:["soldier 76", "soldier", "76"], role:"输出", strong:["法老之鹰", "回声", "死神"], weak:["温斯顿", "D.Va", "黑百合"], note:"泛用性高，对空稳定。高地与持续输出环境最舒服。"},
+{name:"索杰恩", aliases:["sojourn", "索杰恩"], role:"输出", strong:["路霸", "奥丽莎", "莱因哈特"], weak:["温斯顿", "D.Va", "黑百合"], note:"轨道枪爆发和滑铲机动兼备，适合中距离持续充能后寻找关键爆发。面对高机动切入时保留滑铲更安全。"},
 {name:"秩序之光", aliases:["symmetra", "阿三"], role:"输出", strong:["D.Va", "西格玛", "源氏"], weak:["法老之鹰", "狂鼠", "艾什"], note:"光束对矩阵和弹反类防御很有效，适合近距离和狭窄目标点。"},
 {name:"托比昂", aliases:["torbjorn", "托比昂"], role:"输出", strong:["猎空", "源氏", "黑影"], weak:["法老之鹰", "艾什", "黑百合"], note:"炮台能限制侧翼英雄活动，但面对远程与空中压制时容易被安全拆掉。"},
 {name:"猎空", aliases:["tracer"], role:"输出", strong:["禅雅塔", "安娜", "黑百合"], weak:["卡西迪", "布丽吉塔", "托比昂"], note:"靠持续骚扰和资源差取胜。尽量逼技能，不必每次都强求击杀。"},
@@ -337,7 +338,6 @@ const heroes = [
 {name:"弗蕾娅", aliases:["freja", "芙蕾雅"], role:"输出", strong:["路霸", "奥丽莎", "莱因哈特"], weak:["温斯顿", "D.Va", "源氏"], note:"高机动远程输出，擅长借助位移寻找射击角度。被快速贴脸时需要提前保留位移。"},
 {name:"死怨", aliases:["shion", "紫苑"], role:"输出", strong:["禅雅塔", "安娜", "黑百合"], weak:["卡西迪", "托比昂", "布丽吉塔"], note:"高机动侧翼输出，通过位移和持续枪火切入后排。遇到强控制、炮台或贴身保护阵容时先逼技能。"},
 {name:"西拉", aliases:["sierra", "塞拉"], role:"输出", strong:["法老之鹰", "回声", "死神"], weak:["温斯顿", "D.Va", "黑百合"], note:"偏精准追踪和中距离持续输出，能够稳定惩罚暴露目标。面对强突和超远距离狙击时需要不断换位。"},
-{name:"索杰恩", aliases:["sojourn", "索杰恩"], role:"输出", strong:["路霸", "奥丽莎", "莱因哈特"], weak:["温斯顿", "D.Va", "黑百合"], note:"轨道枪爆发和滑铲机动兼备，适合中距离持续充能后寻找关键爆发。面对高机动切入时保留滑铲更安全。"},
 {name:"斩仇", aliases:["vendetta", "文德塔", "复仇女神"], role:"输出", strong:["禅雅塔", "安娜", "生命之梭"], weak:["法老之鹰", "艾什", "布丽吉塔"], note:"近战侧翼输出，依靠冲刺和格挡接近目标。面对空中英雄、长枪和强近身保护时更难持续贴身。"},
 {name:"探奇", aliases:["venture", "探奇", "钻地"], role:"输出", strong:["禅雅塔", "安娜", "黑百合"], weak:["法老之鹰", "艾什", "布丽吉塔"], note:"钻地和冲刺带来很强的突进与撤离能力，适合近距离爆发和切后排。面对空中目标和长枪时射程劣势明显。"},
 {name:"安娜", aliases:["ana"], role:"支援", strong:["路霸", "拉玛刹", "渣客女王"], weak:["源氏", "猎空", "温斯顿", "黑影"], note:"禁疗是对高回复阵容的核心克制。自保依赖睡针，站位尽量让自己只暴露一个角度。"},
@@ -380,7 +380,7 @@ function renderList(){
       <div class="hero-item-left">
         <span class="hero-item-name">${esc(h.name)}</span>
       </div>
-      <span class="role-pill ${h.role==="坦克"?"role-tank":h.role==="输出"?"role-dps":"role-support"}">${h.role==="坦克"?"T 坦克":h.role==="输出"?"C 输出":"辅助"}</span>
+      <span class="role-pill ${h.role==="坦克"?"role-tank":h.role==="输出"?"role-dps":"role-support"}">${h.role==="坦克"?"T 坦克":h.role==="输出"?"C 输出":"S 辅助"}</span>
     </div>`).join("");
   root.querySelectorAll(".hero-item").forEach(el=>{
     el.onclick=()=>{selected=heroes.find(h=>h.name===el.dataset.name);renderList();renderDetail();}
@@ -395,14 +395,14 @@ function renderDetail(){
   const roleMeta={
     "坦克":{label:"T · 坦克", cls:"t"},
     "输出":{label:"C · 输出", cls:"c"},
-    "支援":{label:"辅助", cls:"s"}
+    "支援":{label:"S · 辅助", cls:"s"}
   };
 
   function roleBlock(direction, role){
     const list=(matchupData[h.name]&&matchupData[h.name][direction]&&matchupData[h.name][direction][role])||[];
     const meta=roleMeta[role];
     return `<div class="matchup-role">
-      <h4><span class="role-dot ${meta.cls}">${role==="坦克"?"T":role==="输出"?"C":"辅"}</span>${meta.label} TOP 3</h4>
+      <h4><span class="role-dot ${meta.cls}">${role==="坦克"?"T":role==="输出"?"C":"S"}</span>${meta.label} TOP 3</h4>
       <div class="matchup-rank">
         ${list.map((x,i)=>`<div class="rank-item"><span class="rank-num">${i+1}</span><span>${esc(x)}</span></div>`).join("")}
       </div>
@@ -411,10 +411,10 @@ function renderDetail(){
 
   root.innerHTML=`
     <div class="hero-head">
-      <div class="avatar">${h.role==="坦克"?"T":h.role==="输出"?"C":"辅"}</div>
+      <div class="avatar">${h.role==="坦克"?"T":h.role==="输出"?"C":"S"}</div>
       <div>
         <div class="hero-name">${esc(h.name)}</div>
-        <div class="badge">${h.role==="坦克"?"T · 坦克":h.role==="输出"?"C · 输出":"辅助"}</div>
+        <div class="badge">${h.role==="坦克"?"T · 坦克":h.role==="输出"?"C · 输出":"S · 辅助"}</div>
       </div>
     </div>
 
@@ -574,7 +574,7 @@ function renderMapDetail(){
       </div>
 
       <div class="role-section support">
-        <h3><span class="role-icon">辅</span> 辅助推荐</h3>
+        <h3><span class="role-icon">S</span> 辅助推荐</h3>
         <div class="tags">${tags(m.support)}</div>
       </div>
     </div>
