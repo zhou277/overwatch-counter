@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" type="image/svg+xml" />
+<link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
+<title>守望先锋英雄克制查询 v3.1.0</title>
+<style>
+:root{
+  --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
+  --muted:#95a1b3; --accent:#f99e1a; --good:#40c781; --bad:#ff657a; --line:#30394a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#0c1017,#151b26);color:var(--text);
+font-family:Inter,"Microsoft YaHei",system-ui,sans-serif;min-height:100vh}
+.app{max-width:1120px;margin:auto;padding:28px 18px 48px}
+header{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{margin:0;font-size:28px}
+.subtitle{color:var(--muted);margin-top:6px;font-size:14px}
+.search{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 16px}
+input,select{background:#111722;border:1px solid var(--line);color:white;border-radius:10px;
+padding:11px 13px;font-size:14px;outline:none}
+input{flex:1;min-width:230px}
+select{min-width:140px}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:18px}
+.hero-list,.detail{background:rgba(24,29,39,.94);border:1px solid var(--line);border-radius:16px}
+.hero-list{padding:10px;max-height:70vh;overflow:auto}
+.hero-item{padding:12px;border-radius:11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.hero-item-left{display:flex;align-items:center;min-width:0}
+
+.hero-item-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-item{padding:12px;border-radius:11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.hero-item:hover{background:var(--panel2)}
+.hero-item.active{background:#2a3344;outline:1px solid #46536a}
+.role{font-size:12px;color:var(--muted)}
+.role-pill{font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;letter-spacing:.2px}
+.role-tank{background:#203149;color:#8fc3ff;border:1px solid #34567e}
+.role-dps{background:#432632;color:#ff9caf;border:1px solid #744052}
+.role-support{background:#20392d;color:#87e7ae;border:1px solid #37604b}
+.detail{padding:22px;min-height:500px}
+.hero-head{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:17px}
+.avatar{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#313c50,#1c2330);
+display:grid;place-items:center;font-weight:800;font-size:22px;color:var(--accent);overflow:hidden;border:1px solid #42506a}
+
+.hero-name{font-size:25px;font-weight:750}
+.badge{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:99px;background:#111722;color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.card{background:#121823;border:1px solid var(--line);border-radius:13px;padding:15px}
+.card h3{font-size:15px;margin:0 0 12px}
+.good h3{color:var(--good)} .bad h3{color:var(--bad)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#252e3e;border:1px solid #354157;border-radius:999px;padding:6px 10px;font-size:13px}
+.note{margin-top:16px;background:#121823;border-left:4px solid var(--accent);border-radius:9px;padding:13px 14px;color:#cbd4e2;line-height:1.7}
+.empty{color:var(--muted);text-align:center;padding:28px}
+footer{color:#7f8a9c;font-size:12px;margin-top:16px;line-height:1.6}
+.tabs{display:flex;gap:8px;margin:18px 0 4px}
+.tab{border:1px solid var(--line);background:#121823;color:var(--muted);padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+.tab.active{color:white;border-color:#57657d;background:#273043}
+.map-layout{display:none}
+.map-layout.active{display:grid}
+.counter-layout.hidden{display:none}
+.map-list{background:rgba(24,29,39,.94);border:1px solid var(--line);border-radius:16px;padding:10px;max-height:70vh;overflow:auto}
+.map-item{padding:12px;border-radius:11px;cursor:pointer}
+.map-item:hover,.map-item.active{background:#2a3344}
+.map-mode{font-size:11px;color:var(--muted);margin-top:4px}
+.comp{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.role-sections{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.role-section{background:#121823;border:1px solid var(--line);border-radius:14px;padding:14px}
+.role-section h3{margin:0 0 12px;font-size:15px;display:flex;align-items:center;gap:8px}
+.role-section.tank{border-top:3px solid #5ca8ff}
+.role-section.dps{border-top:3px solid #ff6f8c}
+.role-section.support{border-top:3px solid #58d68d}
+.role-icon{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:12px;font-weight:900}
+.role-section.tank .role-icon{background:#203149;color:#8fc3ff}
+.role-section.dps .role-icon{background:#432632;color:#ff9caf}
+.role-section.support .role-icon{background:#20392d;color:#87e7ae}
+@media(max-width:900px){.role-sections{grid-template-columns:1fr}}
+.comp-row{display:grid;grid-template-columns:70px 1fr;gap:10px;align-items:start}
+.comp-label{color:var(--muted);font-size:13px;padding-top:5px}
+.reason{color:#cbd4e2;line-height:1.75}
+
+.matchup-title{font-size:16px;font-weight:800;margin:22px 0 10px}
+.matchup-title.strong{color:var(--good)}
+.matchup-title.weak{color:var(--bad)}
+.matchup-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.matchup-role{background:#121823;border:1px solid var(--line);border-radius:13px;padding:13px}
+.matchup-role h4{margin:0 0 10px;font-size:13px;color:#cbd4e2;display:flex;align-items:center;gap:7px}
+.matchup-rank{display:flex;flex-direction:column;gap:7px}
+.rank-item{display:flex;align-items:center;gap:8px;background:#1b2230;border-radius:9px;padding:8px 9px;font-size:13px}
+.rank-num{width:20px;height:20px;border-radius:6px;background:#2c3547;display:grid;place-items:center;font-size:11px;font-weight:800;color:#dce5f2;flex:0 0 20px}
+.role-dot{font-size:11px;font-weight:900;padding:2px 6px;border-radius:999px}
+.role-dot.t{background:#203149;color:#8fc3ff}
+.role-dot.c{background:#432632;color:#ff9caf}
+.role-dot.s{background:#20392d;color:#87e7ae}
+@media(max-width:850px){.matchup-roles{grid-template-columns:1fr}}
+
+@media(max-width:760px){.layout{grid-template-columns:1fr}.hero-list{max-height:250px}.grid{grid-template-columns:1fr}}
+
+/* v1.9 mobile optimization */
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+button,input,select{touch-action:manipulation}
+
+@media(max-width:760px){
+  .app{padding:14px 10px 28px}
+  header{align-items:flex-start}
+  h1{font-size:22px;line-height:1.25}
+  .subtitle{font-size:13px;line-height:1.55}
+
+  .tabs{
+    position:sticky;
+    top:0;
+    z-index:20;
+    margin:14px -10px 10px;
+    padding:8px 10px;
+    background:rgba(15,18,25,.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .tab{
+    flex:1;
+    min-height:44px;
+    padding:10px 8px;
+    font-size:14px;
+  }
+
+  .search{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+    margin:12px 0;
+  }
+  input,select{
+    width:100%;
+    min-width:0;
+    min-height:46px;
+    font-size:16px;
+    border-radius:12px;
+  }
+
+  .layout{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .hero-list,.map-list{
+    max-height:280px;
+    border-radius:14px;
+    padding:8px;
+  }
+  .hero-item,.map-item{
+    min-height:48px;
+    padding:11px 10px;
+  }
+  .hero-item-name{font-size:15px}
+  .role-pill{
+    flex:0 0 auto;
+    font-size:11px;
+    padding:5px 8px;
+  }
+
+  .detail{
+    min-height:0;
+    padding:15px 12px;
+    border-radius:14px;
+  }
+  .hero-head{
+    gap:10px;
+    padding-bottom:13px;
+  }
+  .avatar{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    font-size:17px;
+    flex:0 0 48px;
+  }
+  .hero-name{font-size:21px}
+  .badge{font-size:11px}
+
+  .matchup-title{
+    font-size:15px;
+    margin:18px 0 9px;
+  }
+  .matchup-roles{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+  .matchup-role{
+    padding:12px;
+    border-radius:12px;
+  }
+  .matchup-role h4{
+    font-size:13px;
+    margin-bottom:8px;
+  }
+  .rank-item{
+    min-height:42px;
+    padding:9px 10px;
+    font-size:14px;
+  }
+  .rank-num{
+    width:22px;
+    height:22px;
+    flex-basis:22px;
+  }
+
+  .role-sections{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .role-section{
+    padding:12px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .card{
+    padding:13px;
+  }
+  .tags{
+    gap:7px;
+  }
+  .tag{
+    padding:7px 10px;
+    font-size:13px;
+  }
+  .note{
+    margin-top:13px;
+    padding:12px;
+    line-height:1.7;
+    font-size:13px;
+  }
+
+  .comp-row{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+  .comp-label{
+    padding-top:0;
+    font-weight:700;
+  }
+
+  footer{
+    font-size:11px;
+    margin-top:12px;
+  }
+}
+
+@media(max-width:390px){
+  .app{padding-left:8px;padding-right:8px}
+  .tabs{margin-left:-8px;margin-right:-8px;padding-left:8px;padding-right:8px}
+  h1{font-size:20px}
+  .tab{font-size:13px}
+  .hero-name{font-size:19px}
+  .role-pill{padding:4px 7px}
+  .detail{padding:13px 10px}
+  .matchup-role{padding:10px}
+  .rank-item{font-size:13px}
+}
+
+
+.rank-content{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rank-name{font-weight:700}
+.rank-reason{font-size:12px;color:var(--muted);line-height:1.55}
+.rank-item{align-items:flex-start}
+@media(max-width:760px){.rank-item{padding:10px}.rank-reason{font-size:12px;line-height:1.6}}
+
+
+.tips-layout{display:none}.tips-layout.active{display:block}
+.tips-panel{background:rgba(24,29,39,.94);border:1px solid var(--line);border-radius:16px;padding:20px}
+.tips-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.tips-title{font-size:24px;font-weight:800}.tips-subtitle{font-size:13px;color:var(--muted);line-height:1.7}
+.tips-section-title{margin:20px 0 10px;font-size:16px;font-weight:800}
+.tips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tip-card{background:#121823;border:1px solid var(--line);border-radius:13px;padding:13px 14px;display:flex;gap:11px;align-items:flex-start}
+.tip-card.top10{border-left:4px solid var(--accent)}
+.tip-rank{flex:0 0 54px;font-size:12px;font-weight:900;color:var(--accent);background:#252e3e;border-radius:8px;padding:6px 7px;text-align:center}
+.tip-card.secondary .tip-rank{color:#b9c4d4}.tip-text{font-size:14px;line-height:1.75;color:#e7edf5}
+@media(max-width:760px){.tips-panel{padding:14px 11px}.tips-title{font-size:20px}.tips-grid{grid-template-columns:1fr}.tip-card{padding:11px}.tip-rank{flex-basis:50px}.tip-text{font-size:13px}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div>
+    <h1>守望先锋英雄克制查询</h1>
+    <div class="subtitle">v3.1.0 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" id="counterTab">英雄克制</button>
+  <button class="tab" id="mapTab">地图推荐</button>
+  <button class="tab" id="tipsTab">上分建议</button>
+</div>
+<div class="search" id="counterSearch">
+  <input id="search" placeholder="搜索英雄，例如：毛妹 / Winston / 安娜" />
+  <select id="role">
+    <option value="全部">全部位置</option>
+    <option value="坦克">T · 坦克</option>
+    <option value="输出">C · 输出</option>
+    <option value="支援">S · 辅助</option>
+  </select>
+</div>
+
+<div class="layout counter-layout" id="counterLayout">
+  <div class="hero-list" id="heroList"></div>
+  <div class="detail" id="detail"></div>
+</div>
+
+<div class="layout map-layout" id="mapLayout">
+  <div class="map-list" id="mapList"></div>
+  <div class="detail" id="mapDetail"></div>
+</div>
+
+<div class="tips-layout" id="tipsLayout">
+  <div class="tips-panel">
+    <div class="tips-head">
+      <div>
+        <div class="tips-title">OW 上分建议 Top 22</div>
+        <div class="tips-subtitle">把最影响胜率的习惯先做好，再去追求操作上限。以下内容更偏实战与长期稳定上分。</div>
+      </div>
+      <div class="badge">通用 · 全位置适用</div>
+    </div>
+    <div class="tips-section-title">Top 10 · 核心原则</div>
+    <div class="tips-grid">__TOP10_HTML__</div>
+    <div class="tips-section-title">Top 11–22 · 补充建议</div>
+    <div class="tips-grid">__TOPREST_HTML__</div>
+  </div>
+</div>
+
+<footer>
+克制关系用于快速决策，不代表绝对胜负；地图、阵容、技能交换、玩家熟练度都会明显改变对局结果。英雄对位已细分为 T / C / 辅助三个位置，每个位置分别显示克制 TOP 3 与被克制 TOP 3。当前版本已针对手机窄屏和触控操作优化。
+<br>单文件发布版：页面样式、交互逻辑、英雄克制数据和地图推荐数据均已内嵌，无需额外资源文件。<br>英雄列表按 T 坦克 → C 输出 → S 辅助分组；每个克制 TOP 3 条目已附带简短实战原因。</footer>
+</div>
+
+<script>
+const heroes = __HEROES_JSON__;
+
+const matchupData = __MATCHUP_JSON__;
+
+const matchupReasonData = __REASON_JSON__;
+
+let selected = heroes[0];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+
+
+function matches(h,q){
+  q=q.trim().toLowerCase();
+  if(!q) return true;
+  return h.name.toLowerCase().includes(q) || h.aliases.some(a=>a.toLowerCase().includes(q));
+}
+
+function renderList(){
+  const q=document.getElementById("search").value;
+  const role=document.getElementById("role").value;
+  const list=heroes.filter(h=>matches(h,q)&&(role==="全部"||h.role===role));
+  const root=document.getElementById("heroList");
+  if(!list.length){root.innerHTML='<div class="empty">没有找到英雄</div>';return;}
+  root.innerHTML=list.map((h,i)=>`
+    <div class="hero-item ${selected&&selected.name===h.name?'active':''}" data-name="${esc(h.name)}">
+      <div class="hero-item-left">
+        <span class="hero-item-name">${esc(h.name)}</span>
+      </div>
+      <span class="role-pill ${h.role==="坦克"?"role-tank":h.role==="输出"?"role-dps":"role-support"}">${h.role==="坦克"?"T 坦克":h.role==="输出"?"C 输出":"S 辅助"}</span>
+    </div>`).join("");
+  root.querySelectorAll(".hero-item").forEach(el=>{
+    el.onclick=()=>{selected=heroes.find(h=>h.name===el.dataset.name);renderList();renderDetail();}
+  });
+}
+
+function renderDetail(){
+  const h=selected;
+  const root=document.getElementById("detail");
+  if(!h){root.innerHTML='<div class="empty">请选择一个英雄</div>';return;}
+
+  const roleMeta={
+    "坦克":{label:"T · 坦克", cls:"t"},
+    "输出":{label:"C · 输出", cls:"c"},
+    "支援":{label:"S · 辅助", cls:"s"}
+  };
+
+  function roleBlock(direction, role){
+    const list=(matchupReasonData[h.name]&&matchupReasonData[h.name][direction]&&matchupReasonData[h.name][direction][role])||[];
+    const meta=roleMeta[role];
+    return `<div class="matchup-role">
+      <h4><span class="role-dot ${meta.cls}">${role==="坦克"?"T":role==="输出"?"C":"S"}</span>${meta.label} TOP 3</h4>
+      <div class="matchup-rank">
+        ${list.map((x,i)=>`
+          <div class="rank-item">
+            <span class="rank-num">${i+1}</span>
+            <div class="rank-content">
+              <div class="rank-name">${esc(x.name)}</div>
+              <div class="rank-reason">${esc(x.reason)}</div>
+            </div>
+          </div>`).join("")}
+      </div>
+    </div>`;
+  }
+
+  root.innerHTML=`
+    <div class="hero-head">
+      <div class="avatar">${h.role==="坦克"?"T":h.role==="输出"?"C":"S"}</div>
+      <div>
+        <div class="hero-name">${esc(h.name)}</div>
+        <div class="badge">${h.role==="坦克"?"T · 坦克":h.role==="输出"?"C · 输出":"S · 辅助"}</div>
+      </div>
+    </div>
+
+    <div class="matchup-title weak">⚠ 谁比较克制我</div>
+    <div class="matchup-roles">
+      ${roleBlock("weak","坦克")}
+      ${roleBlock("weak","输出")}
+      ${roleBlock("weak","支援")}
+    </div>
+
+    <div class="matchup-title strong">✓ 我比较克制谁</div>
+    <div class="matchup-roles">
+      ${roleBlock("strong","坦克")}
+      ${roleBlock("strong","输出")}
+      ${roleBlock("strong","支援")}
+    </div>
+
+    <div class="note"><b>对局提示：</b>${esc(h.note)}</div>
+  `;
+}
+
+document.getElementById("search").addEventListener("input",renderList);
+document.getElementById("role").addEventListener("change",renderList);
+renderList(); renderDetail();
+
+const maps = __MAPS_JSON__;
+
+let selectedMap = maps[0];
+
+function renderMaps(){
+  const root=document.getElementById("mapList");
+  root.innerHTML=maps.map(m=>`
+    <div class="map-item ${selectedMap.name===m.name?'active':''}" data-map="${esc(m.name)}">
+      <div>${esc(m.name)}</div>
+      <div class="map-mode">${esc(m.mode)} · ${esc(m.style)}</div>
+    </div>`).join("");
+  root.querySelectorAll(".map-item").forEach(el=>{
+    el.onclick=()=>{selectedMap=maps.find(m=>m.name===el.dataset.map);renderMaps();renderMapDetail();}
+  });
+}
+
+function renderMapDetail(){
+  const m=selectedMap;
+  const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+  document.getElementById("mapDetail").innerHTML=`
+    <div class="hero-head">
+      <div class="avatar">图</div>
+      <div><div class="hero-name">${esc(m.name)}</div><div class="badge">${esc(m.mode)} · ${esc(m.style)}</div></div>
+    </div>
+
+    <div class="role-sections">
+      <div class="role-section tank">
+        <h3><span class="role-icon">T</span> 坦克推荐</h3>
+        <div class="tags">${tags(m.tank)}</div>
+      </div>
+
+      <div class="role-section dps">
+        <h3><span class="role-icon">C</span> 输出推荐</h3>
+        <div class="tags">${tags(m.dps)}</div>
+      </div>
+
+      <div class="role-section support">
+        <h3><span class="role-icon">S</span> 辅助推荐</h3>
+        <div class="tags">${tags(m.support)}</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>参考阵容</h3>
+      <div class="reason">${esc(m.comp)}</div>
+    </div>
+
+    <div class="note"><b>为什么适合：</b>${esc(m.reason)}</div>
+  `;
+}
+
+function setTab(tab){
+  const counter = tab==="counter";
+  const map = tab==="map";
+  const tips = tab==="tips";
+  document.getElementById("counterTab").classList.toggle("active",counter);
+  document.getElementById("mapTab").classList.toggle("active",map);
+  document.getElementById("tipsTab").classList.toggle("active",tips);
+  document.getElementById("counterLayout").classList.toggle("hidden",!counter);
+  document.getElementById("counterSearch").style.display=counter?"flex":"none";
+  document.getElementById("mapLayout").classList.toggle("active",map);
+  document.getElementById("tipsLayout").classList.toggle("active",tips);
+}
+document.getElementById("counterTab").onclick=()=>setTab("counter");
+document.getElementById("mapTab").onclick=()=>setTab("map");
+document.getElementById("tipsTab").onclick=()=>setTab("tips");
+renderMaps(); renderMapDetail();
+
+</script>
+
+<script>
+document.addEventListener("touchstart", function(){}, {passive:true});
+</script>
+
+</body>
+</html>
