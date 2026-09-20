@@ -1,127 +1,82 @@
 # Overwatch Counter
 
-当前版本：**v3.1.0**
+当前版本：**v3.1.1**
 
-## v3.1.0 更新
+## v3.1.1 更新
 
-新增 **GitHub Actions 自动构建**。
+本次重点更新 **英雄克制数据和克制原因**。
 
-现在不再要求每次都在本地运行 `python build.py`。
+- 依据 2026-09-20 当前版本重新校正克制关系。
+- 使用当前 5V5、All Ranks 对位数据作为统计参考。
+- 对 D.Va、D.Mon、金驭的 T / C / S Top 3 进行了完整刷新。
+- 对全部英雄加入当前版本的主要反制关系锚点，并重新检查排序。
+- 954 条克制关系的原因全部改写，不再使用“技能机制、射程或机动性更有优势”这类泛化说明。
+- 原因现在尽量明确写出具体技能交互、射程关系、进退场节奏、资源交换、治疗/禁疗、光束/弹道、防守与集火逻辑。
+- `counters` Sheet 新增 `source`、`source_date`、`evidence` 三列。
+- 新增 `sources` Sheet，记录当前数据来源、时间和用途。
+- 修复版本号生成逻辑：`template.html` 改为使用 `__VERSION__` 占位符，之后修改 Excel 的版本号即可正确反映到生成网页。
 
-以后修改网页数据时，只需要：
+## 数据来源说明
 
-```text
-修改 data.xlsx
-      ↓
-上传 / 提交到 GitHub
-      ↓
-GitHub Actions 自动运行 build.py
-      ↓
-自动更新 index.html
-      ↓
-GitHub Pages 自动显示新内容
-```
+### Blizzard 官方
 
-## 项目结构
+用于确认当前英雄改动、技能数值和版本环境。暴雪官方补丁说明并不提供完整的“英雄克制排行榜”。
 
-```text
-overwatch-counter/
-├── .github/
-│   └── workflows/
-│       └── build.yml
-├── data.xlsx
-├── template.html
-├── build.py
-├── index.html
-└── README.md
-```
+### CounterWatch
 
-## 第一次部署
+用于当前版本的英雄对位统计参考。其 Counter Rating 关注英雄之间的直接对抗与团战结果，并不等同于整场比赛胜率。
 
-把以上文件完整上传到 GitHub 仓库根目录。
-
-GitHub Pages 保持：
+因此本项目的克制关系采用：
 
 ```text
-Settings
-→ Pages
-→ Deploy from a branch
-→ main
-→ /(root)
+当前对位统计
++
+英雄技能机制
++
+实际阵容与交战逻辑
 ```
 
-## 以后怎么更新
+而不是简单把“胜率低”直接解释为“被克制”。
 
-### 只修改英雄、克制、地图或上分建议
+## Excel 数据维护
 
-你只需要编辑：
+以后主要修改：
 
 ```text
 data.xlsx
 ```
 
-然后把新版 `data.xlsx` 上传到 GitHub 覆盖旧文件。
+其中：
 
-当 `data.xlsx` 被提交到 `main` 分支后，GitHub Actions 会自动：
+- `heroes`：英雄名称、T/C/S、搜索别名、英雄说明
+- `counters`：克制关系、Top 排名、详细原因、来源与证据
+- `maps`：地图推荐
+- `tips`：上分建议
+- `sources`：数据来源
+- `settings`：版本号和当前克制数据版本
 
-1. 下载仓库
-2. 安装 Python 3.12
-3. 安装 `openpyxl`
-4. 运行 `python build.py`
-5. 生成新的 `index.html`
-6. 自动 commit 并 push `index.html`
+## 自动生成
 
-因此不需要你手动运行 Python。
-
-## 查看自动构建状态
-
-进入 GitHub 仓库：
+上传新的 `data.xlsx` 到 GitHub 后：
 
 ```text
-Actions
-→ Build Overwatch Counter
+GitHub Actions
+→ python build.py
+→ 自动生成 index.html
+→ 自动提交
+→ GitHub Pages 更新
 ```
 
-绿色勾表示构建成功。
+通常不需要本地手动运行 Python。
 
-如果构建失败，可以点击失败的任务查看错误日志。
-
-## 为什么不会无限循环
-
-自动构建生成的 commit 只修改：
+## relation 含义
 
 ```text
-index.html
+weak   = 谁克制我
+strong = 我克制谁
 ```
 
-而 workflow 只在以下文件变化时触发：
-
-```text
-data.xlsx
-template.html
-build.py
-.github/workflows/build.yml
-```
-
-所以 Actions 自动提交 `index.html` 后不会再次触发自身。
-
-## data.xlsx
-
-### settings
-
-项目版本等设置。
-
-### heroes
-
-英雄列表：
-
-- `order`
-- `name`
-- `role`
-- `aliases`
-- `note`
-
-位置统一使用：
+## 位置
 
 ```text
 T = 坦克
@@ -129,57 +84,18 @@ C = 输出
 S = 辅助
 ```
 
-### counters
-
-克制关系：
-
-- `weak`：谁克制我
-- `strong`：我克制谁
-
-包含 TOP 排名和克制原因。
-
-### maps
-
-地图推荐、推荐英雄、阵容和打法说明。
-
-### tips
-
-Top 22 上分建议。
-
-## 什么时候还需要改其他文件
-
-普通数据更新：
-
-```text
-只改 data.xlsx
-```
-
-网页样式或功能改变：
-
-```text
-修改 template.html
-```
-
-生成逻辑改变：
-
-```text
-修改 build.py
-```
-
 ## 版本规则
-
-统一使用：
 
 ```text
 vX.Y.Z
 ```
 
-- **X**：架构级更新
-- **Y**：功能更新
-- **Z**：小调整、文案、样式优化、Bug 修复
+- X：架构更新
+- Y：功能更新
+- Z：数据调整、Bug 修复、文案或样式小改
 
-本次加入 GitHub Actions 自动构建属于功能更新：
+本次属于数据校正和构建 Bug 修复：
 
 ```text
-v3.0.0 → v3.1.0
+v3.1.0 → v3.1.1
 ```
