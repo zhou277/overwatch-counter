@@ -6,7 +6,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" type="image/svg+xml" />
 <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
-<title>守望先锋英雄克制查询 v3.0.0</title>
+<title>守望先锋英雄克制查询 __VERSION__</title>
 <style>
 :root{
   --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
@@ -15,7 +15,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:linear-gradient(135deg,#0c1017,#151b26);color:var(--text);
 font-family:Inter,"Microsoft YaHei",system-ui,sans-serif;min-height:100vh}
-.app{max-width:1120px;margin:auto;padding:28px 18px 48px}
+.app{max-width:1440px;margin:auto;padding:28px 24px 48px}
 header{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 h1{margin:0;font-size:28px}
 .subtitle{color:var(--muted);margin-top:6px;font-size:14px}
@@ -24,7 +24,7 @@ input,select{background:#111722;border:1px solid var(--line);color:white;border-
 padding:11px 13px;font-size:14px;outline:none}
 input{flex:1;min-width:230px}
 select{min-width:140px}
-.layout{display:grid;grid-template-columns:300px 1fr;gap:18px}
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px}
 .hero-list,.detail{background:rgba(24,29,39,.94);border:1px solid var(--line);border-radius:16px}
 .hero-list{padding:10px;max-height:70vh;overflow:auto}
 .hero-item{padding:12px;border-radius:11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
@@ -39,7 +39,7 @@ select{min-width:140px}
 .role-tank{background:#203149;color:#8fc3ff;border:1px solid #34567e}
 .role-dps{background:#432632;color:#ff9caf;border:1px solid #744052}
 .role-support{background:#20392d;color:#87e7ae;border:1px solid #37604b}
-.detail{padding:22px;min-height:500px}
+.detail{padding:24px;min-height:500px}
 .hero-head{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:17px}
 .avatar{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#313c50,#1c2330);
 display:grid;place-items:center;font-weight:800;font-size:22px;color:var(--accent);overflow:hidden;border:1px solid #42506a}
@@ -289,7 +289,7 @@ button,input,select{touch-action:manipulation}
 <header>
   <div>
     <h1>守望先锋英雄克制查询</h1>
-    <div class="subtitle">v3.0.0 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+    <div class="subtitle">__VERSION__ · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
   </div>
 </header>
 
