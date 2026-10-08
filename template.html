@@ -282,6 +282,33 @@ button,input,select{touch-action:manipulation}
 .tip-card.secondary .tip-rank{color:#b9c4d4}.tip-text{font-size:14px;line-height:1.75;color:#e7edf5}
 @media(max-width:760px){.tips-panel{padding:14px 11px}.tips-title{font-size:20px}.tips-grid{grid-template-columns:1fr}.tip-card{padding:11px}.tip-rank{flex-basis:50px}.tip-text{font-size:13px}}
 
+
+.route-card{margin-top:14px}
+.route-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.route-title{font-size:16px;font-weight:800}
+.route-legend{display:flex;gap:8px;flex-wrap:wrap}
+.route-toggle{border:1px solid var(--line);background:#161d29;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
+.route-toggle.active{color:#fff;border-color:#56647b;background:#263145}
+.route-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.route-stage{position:relative;overflow:hidden;border-radius:13px;border:1px solid var(--line);background:#0d131d;aspect-ratio:16/9}
+.route-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0d131d}
+.route-grid{position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:10% 10%}
+.route-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--muted);line-height:1.7}
+.route-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.route-line{fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px rgba(0,0,0,.75))}
+.route-label-bg{fill:rgba(10,15,23,.82);stroke:rgba(255,255,255,.16);stroke-width:.35}
+.route-label{fill:#fff;font-size:3.2px;font-weight:700;dominant-baseline:middle;text-anchor:middle}
+.route-notes{margin-top:10px;display:grid;gap:7px}
+.route-note{font-size:12px;line-height:1.65;color:var(--muted);padding:8px 10px;border-radius:9px;background:#121823;border:1px solid var(--line)}
+.route-note b{color:#e7edf5}
+@media(max-width:760px){
+  .route-stage{aspect-ratio:4/3}
+  .route-toggle{font-size:11px;padding:5px 8px}
+}
+
 </style>
 </head>
 <body>
@@ -444,13 +471,106 @@ function renderMaps(){
   });
 }
 
+
+const routeTypeMeta={
+  main:{label:"主攻路线",defaultColor:"#f59e0b"},
+  flank:{label:"绕后路线",defaultColor:"#ef4444"},
+  highground:{label:"高台路线",defaultColor:"#38bdf8"}
+};
+const routeVisibility={main:true,flank:true,highground:true};
+
+function routePoints(points){
+  return (points||[]).map(p=>`${Number(p[0])},${Number(p[1])}`).join(" ");
+}
+
+function routeLegend(routes){
+  const types=[...new Set((routes||[]).map(r=>r.type))];
+  if(!types.length) return "";
+  return `<div class="route-legend">${types.map(type=>{
+    const meta=routeTypeMeta[type]||{label:type,defaultColor:"#f59e0b"};
+    const sample=(routes||[]).find(r=>r.type===type);
+    const color=(sample&&sample.color)||meta.defaultColor;
+    return `<button class="route-toggle ${routeVisibility[type]!==false?'active':''}" data-route-type="${esc(type)}">
+      <span class="route-dot" style="background:${esc(color)}"></span>${esc(meta.label)}
+    </button>`;
+  }).join("")}</div>`;
+}
+
+function routeSvg(routes){
+  const visible=(routes||[]).filter(r=>routeVisibility[r.type]!==false && (r.points||[]).length>=2);
+  if(!visible.length) return "";
+  const defs=visible.map((r,i)=>{
+    const color=r.color||(routeTypeMeta[r.type]||{}).defaultColor||"#f59e0b";
+    return `<marker id="arrow-${i}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="${esc(color)}"></path>
+    </marker>`;
+  }).join("");
+  const lines=visible.map((r,i)=>{
+    const color=r.color||(routeTypeMeta[r.type]||{}).defaultColor||"#f59e0b";
+    const pts=r.points||[];
+    const last=pts[pts.length-1]||[50,50];
+    const label=r.label||((routeTypeMeta[r.type]||{}).label||r.type);
+    const dash=r.dashed?'2.4 1.8':'';
+    return `
+      <polyline class="route-line" points="${routePoints(pts)}"
+        stroke="${esc(color)}" stroke-width="${Number(r.width||2.8)}"
+        ${dash?`stroke-dasharray="${dash}"`:''}
+        marker-end="url(#arrow-${i})"></polyline>
+      <g transform="translate(${Number(last[0])} ${Number(last[1])-4})">
+        <rect class="route-label-bg" x="-10" y="-3.2" width="20" height="6.4" rx="2"></rect>
+        <text class="route-label" x="0" y="0">${esc(label)}</text>
+      </g>`;
+  }).join("");
+  return `<svg class="route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>${defs}</defs>${lines}
+  </svg>`;
+}
+
+function bindRouteToggles(){
+  document.querySelectorAll(".route-toggle").forEach(btn=>{
+    btn.onclick=()=>{
+      const type=btn.dataset.routeType;
+      routeVisibility[type]=routeVisibility[type]===false;
+      renderMapDetail();
+    };
+  });
+}
+
 function renderMapDetail(){
   const m=selectedMap;
   const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+  const routes=m.routes||[];
+  const hasImage=!!m.image;
+  const hasRoutes=routes.some(r=>(r.points||[]).length>=2);
+  const notes=routes.filter(r=>r.note).map(r=>{
+    const meta=routeTypeMeta[r.type]||{label:r.type};
+    return `<div class="route-note"><b>${esc(r.label||meta.label)}：</b>${esc(r.note)}</div>`;
+  }).join("");
+
   document.getElementById("mapDetail").innerHTML=`
     <div class="hero-head">
       <div class="avatar">图</div>
       <div><div class="hero-name">${esc(m.name)}</div><div class="badge">${esc(m.mode)} · ${esc(m.style)}</div></div>
+    </div>
+
+    <div class="card route-card">
+      <div class="route-head">
+        <div class="route-title">进攻路线</div>
+        ${routeLegend(routes)}
+      </div>
+      <div class="route-stage">
+        ${hasImage?`<img src="${esc(m.image)}" alt="${esc(m.name)} 地图底图" onerror="this.style.display='none'">`:''}
+        ${!hasImage?`<div class="route-grid"></div>`:''}
+        ${routeSvg(routes)}
+        ${!hasImage&&!hasRoutes?`<div class="route-empty">
+          暂未配置这张地图的底图与路线。<br>
+          在 data.xlsx 的 maps.image_path 和 map_routes Sheet 中维护后即可自动显示。
+        </div>`:''}
+        ${hasImage&&!hasRoutes?`<div class="route-empty">
+          已配置地图底图，但尚未配置路线坐标。
+        </div>`:''}
+      </div>
+      ${notes?`<div class="route-notes">${notes}</div>`:''}
     </div>
 
     <div class="role-sections">
@@ -477,6 +597,7 @@ function renderMapDetail(){
 
     <div class="note"><b>为什么适合：</b>${esc(m.reason)}</div>
   `;
+  bindRouteToggles();
 }
 
 function setTab(tab){

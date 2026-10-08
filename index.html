@@ -6,7 +6,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" type="image/svg+xml" />
 <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
-<title>守望先锋英雄克制查询 v3.2.0</title>
+<title>守望先锋英雄克制查询 v3.3.1</title>
 <style>
 :root{
   --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
@@ -282,6 +282,33 @@ button,input,select{touch-action:manipulation}
 .tip-card.secondary .tip-rank{color:#b9c4d4}.tip-text{font-size:14px;line-height:1.75;color:#e7edf5}
 @media(max-width:760px){.tips-panel{padding:14px 11px}.tips-title{font-size:20px}.tips-grid{grid-template-columns:1fr}.tip-card{padding:11px}.tip-rank{flex-basis:50px}.tip-text{font-size:13px}}
 
+
+.route-card{margin-top:14px}
+.route-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.route-title{font-size:16px;font-weight:800}
+.route-legend{display:flex;gap:8px;flex-wrap:wrap}
+.route-toggle{border:1px solid var(--line);background:#161d29;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
+.route-toggle.active{color:#fff;border-color:#56647b;background:#263145}
+.route-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.route-stage{position:relative;overflow:hidden;border-radius:13px;border:1px solid var(--line);background:#0d131d;aspect-ratio:16/9}
+.route-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0d131d}
+.route-grid{position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:10% 10%}
+.route-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--muted);line-height:1.7}
+.route-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.route-line{fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px rgba(0,0,0,.75))}
+.route-label-bg{fill:rgba(10,15,23,.82);stroke:rgba(255,255,255,.16);stroke-width:.35}
+.route-label{fill:#fff;font-size:3.2px;font-weight:700;dominant-baseline:middle;text-anchor:middle}
+.route-notes{margin-top:10px;display:grid;gap:7px}
+.route-note{font-size:12px;line-height:1.65;color:var(--muted);padding:8px 10px;border-radius:9px;background:#121823;border:1px solid var(--line)}
+.route-note b{color:#e7edf5}
+@media(max-width:760px){
+  .route-stage{aspect-ratio:4/3}
+  .route-toggle{font-size:11px;padding:5px 8px}
+}
+
 </style>
 </head>
 <body>
@@ -289,7 +316,7 @@ button,input,select{touch-action:manipulation}
 <header>
   <div>
     <h1>守望先锋英雄克制查询</h1>
-    <div class="subtitle">v3.2.0 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+    <div class="subtitle">v3.3.1 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
   </div>
 </header>
 
@@ -448,7 +475,7 @@ document.getElementById("search").addEventListener("input",renderList);
 document.getElementById("role").addEventListener("change",renderList);
 renderList(); renderDetail();
 
-const maps = [{"name":"国王大道","mode":"混合","style":"近中距离 / 拐角多 / 正面推进","tank":["莱因哈特","拉玛刹","查莉娅"],"dps":["美","卡西迪","源氏"],"support":["卢西奥","安娜","雾子"],"comp":"莱因哈特 + 美 + 卡西迪 + 卢西奥 + 安娜","reason":"街道狭窄、拐角密集，正面推进和速度增益价值高。大锤体系容易形成稳定的资源交换，美可以封路分割。"},{"name":"直布罗陀","mode":"护送","style":"高台多 / 垂直机动 / 长枪","tank":["温斯顿","D.Va","破坏球"],"dps":["黑百合","源氏","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 黑百合 + 安娜 + 雾子","reason":"大量高台和垂直空间让机动坦克价值很高。进攻要抢高台，防守长枪位也非常强势。"},{"name":"皇家赛道","mode":"护送","style":"超长视野 / 长枪 / 高地","tank":["西格玛","D.Va"],"dps":["黑百合","艾什","半藏"],"support":["巴蒂斯特","禅雅塔","天使"],"comp":"西格玛 + 黑百合 + 艾什 + 巴蒂斯特 + 禅雅塔","reason":"视野长且天然射击位多，西格玛可以维持远程资源交换，同时为双长枪创造输出空间。"},{"name":"哈瓦那","mode":"护送","style":"长枪 / 远程压制","tank":["西格玛","D.Va"],"dps":["黑百合","艾什","半藏"],"support":["巴蒂斯特","禅雅塔","天使"],"comp":"西格玛 + 黑百合 + 艾什 + 巴蒂斯特 + 天使","reason":"多个阶段都存在很长的射线，远程击杀能力通常比纯近战阵容更容易发挥。"},{"name":"66号公路","mode":"护送","style":"中远距离 / 高地争夺","tank":["西格玛","D.Va","温斯顿"],"dps":["艾什","卡西迪","源氏"],"support":["安娜","巴蒂斯特","雾子"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"既有长视野也有高地与侧翼路线，机动性和远程输出都重要，阵容不宜过度偏科。"},{"name":"渣客镇","mode":"护送","style":"开放 / 长枪 / 侧翼","tank":["西格玛","D.Va","破坏球"],"dps":["黑百合","艾什","半藏"],"support":["天使","安娜","禅雅塔"],"comp":"西格玛 + 黑百合 + 艾什 + 天使 + 禅雅塔","reason":"第一段尤其开放，长枪和伤害增幅很强；后续区域则需要更注意近距离遭遇和高台争夺。"},{"name":"多拉多","mode":"护送","style":"高台 / 机动 / 中距离","tank":["温斯顿","D.Va"],"dps":["源氏","艾什","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 艾什 + 安娜 + 雾子","reason":"高台连贯且路线复杂，能快速上下高台的英雄更容易持续保持优势角度。"},{"name":"里阿尔托","mode":"护送","style":"中远距离 / 桥口 / 侧翼","tank":["西格玛","D.Va"],"dps":["艾什","半藏","源氏"],"support":["巴蒂斯特","安娜","雾子"],"comp":"西格玛 + 艾什 + 半藏 + 巴蒂斯特 + 雾子","reason":"桥口与狭窄入口很多，中远程消耗很强，但也需要防止侧翼从多个角度切入。"},{"name":"中城","mode":"混合","style":"中距离 / 高地 / 拐角","tank":["D.Va","温斯顿","拉玛刹"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"地图同时存在高地、窄口和中距离枪线，灵活的混合阵容通常比单一纯冲阵更舒服。"},{"name":"艾兴瓦尔德","mode":"混合","style":"桥口 / 近战 / 高地","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","源氏","艾什"],"support":["卢西奥","安娜","雾子"],"comp":"莱因哈特 + 美 + 源氏 + 卢西奥 + 安娜","reason":"第一阶段桥口适合正面推进；进入城堡后空间更紧，近战和控场价值进一步提高。"},{"name":"努巴尼","mode":"混合","style":"高台 / 垂直机动","tank":["温斯顿","D.Va"],"dps":["源氏","艾什","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 艾什 + 安娜 + 雾子","reason":"第一点高台非常关键，机动坦克能更快争夺射击位并帮助队友清理高地。"},{"name":"好莱坞","mode":"混合","style":"混合 / 高台 / 中远距离","tank":["D.Va","西格玛","温斯顿"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","巴蒂斯特","雾子"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"从窄口到开放高台都有，阵容最好同时保留高地处理能力和稳定中距离火力。"},{"name":"伊利奥斯","mode":"控制","style":"近战 / 地形杀 / 多子图","tank":["温斯顿","D.Va","莱因哈特"],"dps":["法老之鹰","源氏","美"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 法老之鹰 + 卢西奥 + 雾子","reason":"不同子图差异较大，但整体很重视机动、抢点速度与地形利用。深井等区域尤其要防地形杀。"},{"name":"漓江塔","mode":"控制","style":"近战 / 快速转点","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","卡西迪","源氏"],"support":["卢西奥","雾子","安娜"],"comp":"莱因哈特 + 美 + 卡西迪 + 卢西奥 + 雾子","reason":"控制点周围窄口明显，速度和近距离控场往往能直接决定第一波站位。"},{"name":"尼泊尔","mode":"控制","style":"近中距离 / 多地形","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","源氏","卡西迪"],"support":["卢西奥","安娜","雾子"],"comp":"温斯顿 + 源氏 + 卡西迪 + 安娜 + 雾子","reason":"三张子图差异明显，推荐保留一定机动性，方便高低差和外围路线的争夺。"},{"name":"釜山","mode":"控制","style":"中远距离 / 高地 / 机动","tank":["D.Va","温斯顿","西格玛"],"dps":["艾什","源氏","士兵：76"],"support":["安娜","雾子","巴蒂斯特"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"多个子图有明显高地与开阔角度，D.Va和长枪都很容易找到发挥空间。"},{"name":"绿洲","mode":"控制","style":"机动 / 近中距离","tank":["温斯顿","D.Va","拉玛刹"],"dps":["源氏","猎空","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 猎空 + 卢西奥 + 雾子","reason":"转点和侧翼路线丰富，快速切入后排、再迅速撤离的机动体系比较舒服。"},{"name":"新皇后街","mode":"机动推进","style":"机动 / 长路线 / 侧翼","tank":["温斯顿","D.Va","破坏球"],"dps":["猎空","源氏","艾什"],"support":["安娜","雾子","卢西奥"],"comp":"温斯顿 + 猎空 + 源氏 + 安娜 + 雾子","reason":"机器人路线长，战线经常变化。高机动英雄能更快重新集结、抢高地和追击残血。"},{"name":"斗兽场","mode":"机动推进","style":"中近距离 / 拐角 / 机动","tank":["拉玛刹","温斯顿","D.Va"],"dps":["卡西迪","源氏","猎空"],"support":["卢西奥","雾子","安娜"],"comp":"拉玛刹 + 卡西迪 + 源氏 + 卢西奥 + 雾子","reason":"中心区域与弯道多，阵容既需要正面持续作战，也需要快速回到机器人附近。"},{"name":"埃斯佩兰萨","mode":"机动推进","style":"长视野 / 高地 / 机动","tank":["D.Va","温斯顿","西格玛"],"dps":["艾什","源氏","猎空"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"视野和高低差都比较丰富，灵活阵容更容易兼顾抢高台、侧翼和机器人转点。"},{"name":"苏拉瓦萨","mode":"闪点作战","style":"高速转点 / 近战 / 机动","tank":["温斯顿","D.Va","破坏球"],"dps":["猎空","源氏","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 猎空 + 源氏 + 卢西奥 + 雾子","reason":"点位之间距离远，移动效率非常重要。过慢的阵容经常会输在转点和重新集结。"},{"name":"新渣客城","mode":"闪点作战","style":"快速转点 / 多入口","tank":["温斯顿","D.Va","拉玛刹"],"dps":["猎空","源氏","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 猎空 + 源氏 + 卢西奥 + 雾子","reason":"多入口和频繁转点让机动性成为核心价值，侧翼英雄很容易制造交叉火力。"},{"name":"阿特利斯","mode":"闪点作战","style":"紧凑团战 / 快速轮转","tank":["温斯顿","D.Va","拉玛刹"],"dps":["源氏","猎空","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 猎空 + 卢西奥 + 雾子","reason":"地图强调紧凑战斗和快速轮转，因此高机动、快速接战和脱战的英雄更容易发挥。"},{"name":"霓虹交汇点","mode":"混合","style":"城市巷战 / 高低差 / 混合","tank":["D.Va","温斯顿","拉玛刹"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"作为混合地图，推荐用兼顾机动与中距离火力的阵容作为默认起点，再根据具体卡点调整。"}];
+const maps = [{"name":"国王大道","mode":"混合","style":"近中距离 / 拐角多 / 正面推进","tank":["莱因哈特","拉玛刹","查莉娅"],"dps":["美","卡西迪","源氏"],"support":["卢西奥","安娜","雾子"],"comp":"莱因哈特 + 美 + 卡西迪 + 卢西奥 + 安娜","reason":"街道狭窄、拐角密集，正面推进和速度增益价值高。大锤体系容易形成稳定的资源交换，美可以封路分割。","image":"","routes":[]},{"name":"直布罗陀","mode":"护送","style":"高台多 / 垂直机动 / 长枪","tank":["温斯顿","D.Va","破坏球"],"dps":["黑百合","源氏","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 黑百合 + 安娜 + 雾子","reason":"大量高台和垂直空间让机动坦克价值很高。进攻要抢高台，防守长枪位也非常强势。","image":"","routes":[]},{"name":"皇家赛道","mode":"护送","style":"超长视野 / 长枪 / 高地","tank":["西格玛","D.Va"],"dps":["黑百合","艾什","半藏"],"support":["巴蒂斯特","禅雅塔","天使"],"comp":"西格玛 + 黑百合 + 艾什 + 巴蒂斯特 + 禅雅塔","reason":"视野长且天然射击位多，西格玛可以维持远程资源交换，同时为双长枪创造输出空间。","image":"","routes":[]},{"name":"哈瓦那","mode":"护送","style":"长枪 / 远程压制","tank":["西格玛","D.Va"],"dps":["黑百合","艾什","半藏"],"support":["巴蒂斯特","禅雅塔","天使"],"comp":"西格玛 + 黑百合 + 艾什 + 巴蒂斯特 + 天使","reason":"多个阶段都存在很长的射线，远程击杀能力通常比纯近战阵容更容易发挥。","image":"","routes":[]},{"name":"66号公路","mode":"护送","style":"中远距离 / 高地争夺","tank":["西格玛","D.Va","温斯顿"],"dps":["艾什","卡西迪","源氏"],"support":["安娜","巴蒂斯特","雾子"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"既有长视野也有高地与侧翼路线，机动性和远程输出都重要，阵容不宜过度偏科。","image":"","routes":[]},{"name":"渣客镇","mode":"护送","style":"开放 / 长枪 / 侧翼","tank":["西格玛","D.Va","破坏球"],"dps":["黑百合","艾什","半藏"],"support":["天使","安娜","禅雅塔"],"comp":"西格玛 + 黑百合 + 艾什 + 天使 + 禅雅塔","reason":"第一段尤其开放，长枪和伤害增幅很强；后续区域则需要更注意近距离遭遇和高台争夺。","image":"","routes":[]},{"name":"多拉多","mode":"护送","style":"高台 / 机动 / 中距离","tank":["温斯顿","D.Va"],"dps":["源氏","艾什","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 艾什 + 安娜 + 雾子","reason":"高台连贯且路线复杂，能快速上下高台的英雄更容易持续保持优势角度。","image":"","routes":[]},{"name":"里阿尔托","mode":"护送","style":"中远距离 / 桥口 / 侧翼","tank":["西格玛","D.Va"],"dps":["艾什","半藏","源氏"],"support":["巴蒂斯特","安娜","雾子"],"comp":"西格玛 + 艾什 + 半藏 + 巴蒂斯特 + 雾子","reason":"桥口与狭窄入口很多，中远程消耗很强，但也需要防止侧翼从多个角度切入。","image":"","routes":[]},{"name":"中城","mode":"混合","style":"中距离 / 高地 / 拐角","tank":["D.Va","温斯顿","拉玛刹"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"地图同时存在高地、窄口和中距离枪线，灵活的混合阵容通常比单一纯冲阵更舒服。","image":"","routes":[]},{"name":"艾兴瓦尔德","mode":"混合","style":"桥口 / 近战 / 高地","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","源氏","艾什"],"support":["卢西奥","安娜","雾子"],"comp":"莱因哈特 + 美 + 源氏 + 卢西奥 + 安娜","reason":"第一阶段桥口适合正面推进；进入城堡后空间更紧，近战和控场价值进一步提高。","image":"","routes":[]},{"name":"努巴尼","mode":"混合","style":"高台 / 垂直机动","tank":["温斯顿","D.Va"],"dps":["源氏","艾什","回声"],"support":["安娜","雾子","天使"],"comp":"温斯顿 + 源氏 + 艾什 + 安娜 + 雾子","reason":"第一点高台非常关键，机动坦克能更快争夺射击位并帮助队友清理高地。","image":"","routes":[]},{"name":"好莱坞","mode":"混合","style":"混合 / 高台 / 中远距离","tank":["D.Va","西格玛","温斯顿"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","巴蒂斯特","雾子"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"从窄口到开放高台都有，阵容最好同时保留高地处理能力和稳定中距离火力。","image":"","routes":[]},{"name":"伊利奥斯","mode":"控制","style":"近战 / 地形杀 / 多子图","tank":["温斯顿","D.Va","莱因哈特"],"dps":["法老之鹰","源氏","美"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 法老之鹰 + 卢西奥 + 雾子","reason":"不同子图差异较大，但整体很重视机动、抢点速度与地形利用。深井等区域尤其要防地形杀。","image":"","routes":[]},{"name":"漓江塔","mode":"控制","style":"近战 / 快速转点","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","卡西迪","源氏"],"support":["卢西奥","雾子","安娜"],"comp":"莱因哈特 + 美 + 卡西迪 + 卢西奥 + 雾子","reason":"控制点周围窄口明显，速度和近距离控场往往能直接决定第一波站位。","image":"","routes":[]},{"name":"尼泊尔","mode":"控制","style":"近中距离 / 多地形","tank":["莱因哈特","温斯顿","D.Va"],"dps":["美","源氏","卡西迪"],"support":["卢西奥","安娜","雾子"],"comp":"温斯顿 + 源氏 + 卡西迪 + 安娜 + 雾子","reason":"三张子图差异明显，推荐保留一定机动性，方便高低差和外围路线的争夺。","image":"","routes":[]},{"name":"釜山","mode":"控制","style":"中远距离 / 高地 / 机动","tank":["D.Va","温斯顿","西格玛"],"dps":["艾什","源氏","士兵：76"],"support":["安娜","雾子","巴蒂斯特"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"多个子图有明显高地与开阔角度，D.Va和长枪都很容易找到发挥空间。","image":"","routes":[]},{"name":"绿洲","mode":"控制","style":"机动 / 近中距离","tank":["温斯顿","D.Va","拉玛刹"],"dps":["源氏","猎空","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 猎空 + 卢西奥 + 雾子","reason":"转点和侧翼路线丰富，快速切入后排、再迅速撤离的机动体系比较舒服。","image":"","routes":[]},{"name":"新皇后街","mode":"机动推进","style":"机动 / 长路线 / 侧翼","tank":["温斯顿","D.Va","破坏球"],"dps":["猎空","源氏","艾什"],"support":["安娜","雾子","卢西奥"],"comp":"温斯顿 + 猎空 + 源氏 + 安娜 + 雾子","reason":"机器人路线长，战线经常变化。高机动英雄能更快重新集结、抢高地和追击残血。","image":"","routes":[]},{"name":"斗兽场","mode":"机动推进","style":"中近距离 / 拐角 / 机动","tank":["拉玛刹","温斯顿","D.Va"],"dps":["卡西迪","源氏","猎空"],"support":["卢西奥","雾子","安娜"],"comp":"拉玛刹 + 卡西迪 + 源氏 + 卢西奥 + 雾子","reason":"中心区域与弯道多，阵容既需要正面持续作战，也需要快速回到机器人附近。","image":"","routes":[]},{"name":"埃斯佩兰萨","mode":"机动推进","style":"长视野 / 高地 / 机动","tank":["D.Va","温斯顿","西格玛"],"dps":["艾什","源氏","猎空"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"视野和高低差都比较丰富，灵活阵容更容易兼顾抢高台、侧翼和机器人转点。","image":"","routes":[]},{"name":"苏拉瓦萨","mode":"闪点作战","style":"高速转点 / 近战 / 机动","tank":["温斯顿","D.Va","破坏球"],"dps":["猎空","源氏","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 猎空 + 源氏 + 卢西奥 + 雾子","reason":"点位之间距离远，移动效率非常重要。过慢的阵容经常会输在转点和重新集结。","image":"","routes":[]},{"name":"新渣客城","mode":"闪点作战","style":"快速转点 / 多入口","tank":["温斯顿","D.Va","拉玛刹"],"dps":["猎空","源氏","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 猎空 + 源氏 + 卢西奥 + 雾子","reason":"多入口和频繁转点让机动性成为核心价值，侧翼英雄很容易制造交叉火力。","image":"","routes":[]},{"name":"阿特利斯","mode":"闪点作战","style":"紧凑团战 / 快速轮转","tank":["温斯顿","D.Va","拉玛刹"],"dps":["源氏","猎空","卡西迪"],"support":["卢西奥","雾子","安娜"],"comp":"温斯顿 + 源氏 + 猎空 + 卢西奥 + 雾子","reason":"地图强调紧凑战斗和快速轮转，因此高机动、快速接战和脱战的英雄更容易发挥。","image":"","routes":[]},{"name":"霓虹交汇点","mode":"混合","style":"城市巷战 / 高低差 / 混合","tank":["D.Va","温斯顿","拉玛刹"],"dps":["艾什","源氏","卡西迪"],"support":["安娜","雾子","卢西奥"],"comp":"D.Va + 艾什 + 源氏 + 安娜 + 雾子","reason":"作为混合地图，推荐用兼顾机动与中距离火力的阵容作为默认起点，再根据具体卡点调整。","image":"","routes":[]}];
 
 let selectedMap = maps[0];
 
@@ -464,13 +491,106 @@ function renderMaps(){
   });
 }
 
+
+const routeTypeMeta={
+  main:{label:"主攻路线",defaultColor:"#f59e0b"},
+  flank:{label:"绕后路线",defaultColor:"#ef4444"},
+  highground:{label:"高台路线",defaultColor:"#38bdf8"}
+};
+const routeVisibility={main:true,flank:true,highground:true};
+
+function routePoints(points){
+  return (points||[]).map(p=>`${Number(p[0])},${Number(p[1])}`).join(" ");
+}
+
+function routeLegend(routes){
+  const types=[...new Set((routes||[]).map(r=>r.type))];
+  if(!types.length) return "";
+  return `<div class="route-legend">${types.map(type=>{
+    const meta=routeTypeMeta[type]||{label:type,defaultColor:"#f59e0b"};
+    const sample=(routes||[]).find(r=>r.type===type);
+    const color=(sample&&sample.color)||meta.defaultColor;
+    return `<button class="route-toggle ${routeVisibility[type]!==false?'active':''}" data-route-type="${esc(type)}">
+      <span class="route-dot" style="background:${esc(color)}"></span>${esc(meta.label)}
+    </button>`;
+  }).join("")}</div>`;
+}
+
+function routeSvg(routes){
+  const visible=(routes||[]).filter(r=>routeVisibility[r.type]!==false && (r.points||[]).length>=2);
+  if(!visible.length) return "";
+  const defs=visible.map((r,i)=>{
+    const color=r.color||(routeTypeMeta[r.type]||{}).defaultColor||"#f59e0b";
+    return `<marker id="arrow-${i}" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="${esc(color)}"></path>
+    </marker>`;
+  }).join("");
+  const lines=visible.map((r,i)=>{
+    const color=r.color||(routeTypeMeta[r.type]||{}).defaultColor||"#f59e0b";
+    const pts=r.points||[];
+    const last=pts[pts.length-1]||[50,50];
+    const label=r.label||((routeTypeMeta[r.type]||{}).label||r.type);
+    const dash=r.dashed?'2.4 1.8':'';
+    return `
+      <polyline class="route-line" points="${routePoints(pts)}"
+        stroke="${esc(color)}" stroke-width="${Number(r.width||2.8)}"
+        ${dash?`stroke-dasharray="${dash}"`:''}
+        marker-end="url(#arrow-${i})"></polyline>
+      <g transform="translate(${Number(last[0])} ${Number(last[1])-4})">
+        <rect class="route-label-bg" x="-10" y="-3.2" width="20" height="6.4" rx="2"></rect>
+        <text class="route-label" x="0" y="0">${esc(label)}</text>
+      </g>`;
+  }).join("");
+  return `<svg class="route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>${defs}</defs>${lines}
+  </svg>`;
+}
+
+function bindRouteToggles(){
+  document.querySelectorAll(".route-toggle").forEach(btn=>{
+    btn.onclick=()=>{
+      const type=btn.dataset.routeType;
+      routeVisibility[type]=routeVisibility[type]===false;
+      renderMapDetail();
+    };
+  });
+}
+
 function renderMapDetail(){
   const m=selectedMap;
   const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+  const routes=m.routes||[];
+  const hasImage=!!m.image;
+  const hasRoutes=routes.some(r=>(r.points||[]).length>=2);
+  const notes=routes.filter(r=>r.note).map(r=>{
+    const meta=routeTypeMeta[r.type]||{label:r.type};
+    return `<div class="route-note"><b>${esc(r.label||meta.label)}：</b>${esc(r.note)}</div>`;
+  }).join("");
+
   document.getElementById("mapDetail").innerHTML=`
     <div class="hero-head">
       <div class="avatar">图</div>
       <div><div class="hero-name">${esc(m.name)}</div><div class="badge">${esc(m.mode)} · ${esc(m.style)}</div></div>
+    </div>
+
+    <div class="card route-card">
+      <div class="route-head">
+        <div class="route-title">进攻路线</div>
+        ${routeLegend(routes)}
+      </div>
+      <div class="route-stage">
+        ${hasImage?`<img src="${esc(m.image)}" alt="${esc(m.name)} 地图底图" onerror="this.style.display='none'">`:''}
+        ${!hasImage?`<div class="route-grid"></div>`:''}
+        ${routeSvg(routes)}
+        ${!hasImage&&!hasRoutes?`<div class="route-empty">
+          暂未配置这张地图的底图与路线。<br>
+          在 data.xlsx 的 maps.image_path 和 map_routes Sheet 中维护后即可自动显示。
+        </div>`:''}
+        ${hasImage&&!hasRoutes?`<div class="route-empty">
+          已配置地图底图，但尚未配置路线坐标。
+        </div>`:''}
+      </div>
+      ${notes?`<div class="route-notes">${notes}</div>`:''}
     </div>
 
     <div class="role-sections">
@@ -497,6 +617,7 @@ function renderMapDetail(){
 
     <div class="note"><b>为什么适合：</b>${esc(m.reason)}</div>
   `;
+  bindRouteToggles();
 }
 
 function setTab(tab){
