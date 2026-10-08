@@ -1,6 +1,65 @@
 # Overwatch Counter
 
-当前版本：**v3.3.2**
+当前版本：**v3.3.4**
+
+## v3.3.4 更新
+
+国王大道改为 **本地图片优先**。
+
+### 新流程
+
+```text
+从 StatBanana 下载 King's Row 低分辨率 PNG
+→ 重命名为 kings-row.png
+→ 放入 assets/maps/
+→ 网页加载本地图片
+→ SVG 路线叠加在图片上
+```
+
+Excel 中的路径现在是：
+
+```text
+assets/maps/kings-row.png
+```
+
+### 为什么这样改
+
+相比外部图片 URL：
+
+- GitHub Pages 加载更稳定
+- 不受 Google Drive 热链限制
+- 不受第三方站点防盗链影响
+- 路线坐标与图片版本固定
+- 后续可以逐张地图本地化
+
+如果图片文件没有放入仓库，网页不会再显示一块完全空白区域，而会直接提示缺少哪个文件。
+
+### 图片使用说明
+
+StatBanana 的公开说明要求：
+
+- 不用于非免费的商业作品
+- 不原样重新分发
+- 保留 Logo，或在图片附近注明来源
+
+因此项目 ZIP 不直接附带 StatBanana 的原始 PNG。
+请由使用者从来源页自行下载，然后放到指定路径。
+
+## v3.3.3 更新
+
+修复国王大道真实俯视图不显示的问题。
+
+- 原因：v3.3.2 使用 Google Drive 文件作为 `<img>` 外链，GitHub Pages 无法稳定直接加载
+- 改为使用 StatBanana 页面自身可直接访问的 King's Row 预览图
+- 修复路线画布比例：16:9 → 1:1
+- `maps` Sheet 新增 `image_aspect`
+- `build.py` 会读取图片比例，避免 SVG 路线和底图发生缩放错位
+
+国王大道当前底图：
+
+```text
+https://overwatch.statbanana.com/static/whitethumbnail/kings.png
+```
 
 ## v3.3.2 更新
 

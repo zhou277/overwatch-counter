@@ -290,7 +290,7 @@ button,input,select{touch-action:manipulation}
 .route-toggle{border:1px solid var(--line);background:#161d29;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
 .route-toggle.active{color:#fff;border-color:#56647b;background:#263145}
 .route-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
-.route-stage{position:relative;overflow:hidden;border-radius:13px;border:1px solid var(--line);background:#0d131d;aspect-ratio:16/9}
+.route-stage{position:relative;overflow:hidden;border-radius:13px;border:1px solid var(--line);background:#0d131d;aspect-ratio:1/1}
 .route-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0d131d}
 .route-grid{position:absolute;inset:0;background:
   linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
@@ -305,7 +305,6 @@ button,input,select{touch-action:manipulation}
 .route-note{font-size:12px;line-height:1.65;color:var(--muted);padding:8px 10px;border-radius:9px;background:#121823;border:1px solid var(--line)}
 .route-note b{color:#e7edf5}
 @media(max-width:760px){
-  .route-stage{aspect-ratio:4/3}
   .route-toggle{font-size:11px;padding:5px 8px}
 }
 
@@ -313,6 +312,13 @@ button,input,select{touch-action:manipulation}
 .route-credit{margin-top:8px;font-size:11px;line-height:1.55;color:#7f8da3}
 .route-credit a{color:#8db9ff;text-decoration:none}
 .route-credit a:hover{text-decoration:underline}
+
+
+.route-missing{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+text-align:center;padding:28px;color:#9aa8ba;line-height:1.75;background:#0d131d;z-index:1}
+.route-missing code{color:#dce6f2;background:#161d29;padding:2px 6px;border-radius:6px}
+.route-svg{z-index:2}
+.route-stage img{z-index:0}
 
 </style>
 </head>
@@ -541,6 +547,17 @@ function bindRouteToggles(){
   });
 }
 
+
+function handleMapImageError(img){
+  img.style.display="none";
+  const stage=img.closest(".route-stage");
+  if(!stage || stage.querySelector(".route-missing")) return;
+  const box=document.createElement("div");
+  box.className="route-missing";
+  box.innerHTML=`底图文件未找到。<br>请把下载的地图图片保存为<br><code>${esc(img.getAttribute("src")||"")}</code>`;
+  stage.prepend(box);
+}
+
 function renderMapDetail(){
   const m=selectedMap;
   const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
@@ -563,8 +580,8 @@ function renderMapDetail(){
         <div class="route-title">进攻路线</div>
         ${routeLegend(routes)}
       </div>
-      <div class="route-stage">
-        ${hasImage?`<img src="${esc(m.image)}" alt="${esc(m.name)} 地图底图" onerror="this.style.display='none'">`:''}
+      <div class="route-stage" style="aspect-ratio:${esc(m.imageAspect||"1/1")}">
+        ${hasImage?`<img src="${esc(m.image)}" alt="${esc(m.name)} 地图底图" onerror="handleMapImageError(this)">`:''}
         ${!hasImage?`<div class="route-grid"></div>`:''}
         ${routeSvg(routes)}
         ${!hasImage&&!hasRoutes?`<div class="route-empty">
