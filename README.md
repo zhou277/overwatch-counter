@@ -1,133 +1,46 @@
 # Overwatch Counter
 
-当前版本：**v3.4.0**
+当前版本：**v3.5.0**
 
-## v3.4.0：自动下载并本地化实际俯视图
+## v3.5.0 更新
 
-本版把实际地图图片处理改成自动流程：
+本版完成 3 项更新：
 
-```text
-公开俯视图资源
-→ prepare_map_assets.py 下载到临时内存
-→ Pillow 加入来源署名条
-→ 生成本地派生 PNG
-→ 保存到 assets/maps/real/
-→ build.py 生成网页
-→ GitHub Actions 自动提交 PNG + index.html
-```
+1. 使用更高清的实际俯视图来源（高分辨率 PNG）
+2. 把各类路线箭头改得更细
+3. 每张地图都增加第二条绕后路线
 
-这样网页最终加载的是仓库自己的本地图片，不再依赖图片热链。
+### 高清图片
 
-## 已批量接入实际俯视图
+`prepare_map_assets.py` 现在会优先从 StatBanana 页面对应的 Google Drive 高分辨率 PNG 下载地图，再保存到本地：
 
-当前使用 StatBanana / Coggle 明确给出使用条件的资源，共 **14 张当前项目地图**：
+- 5000×5000：国王大道、直布罗陀、66号公路、渣客镇、多拉多、里阿尔托、艾兴瓦尔德、努巴尼、好莱坞
+- 10000×5000：伊利奥斯、漓江塔、尼泊尔、釜山、绿洲
 
-```text
-国王大道
-直布罗陀
-66号公路
-渣客镇
-多拉多
-里阿尔托
-艾兴瓦尔德
-努巴尼
-好莱坞
-伊利奥斯
-漓江塔
-尼泊尔
-釜山
-绿洲
-```
+如果高分辨率下载失败，才会回退到站内预览图。
 
-这些图片不会原样保存。`prepare_map_assets.py` 会在底部加入来源署名，生成项目使用的派生文件。
+### 更细的路线
 
-来源：
+- 主攻路线：1.9
+- 绕后路线：1.45
+- 绕后B：1.5
+- 高台路线：1.6
 
-```text
-https://overwatch.statbanana.com/images
-```
+同时缩小了箭头头部、标签字号和投影强度，让地图内容更清晰。
 
-StatBanana 的公开说明要求：免费用途、不要原样重新分发，并保留 Logo 或注明来源。
+### 两条绕后路线
 
-## OW2 新地图
+每张地图现在都变成：
 
-以下当前项目地图暂时继续使用 v3.3.1 的战术示意底图：
+- 主攻路线
+- 绕后路线 A
+- 绕后路线 B
+- 高台路线
 
-```text
-皇家赛道
-哈瓦那
-中城
-新皇后街
-斗兽场
-埃斯佩兰萨
-苏拉瓦萨
-新渣客城
-阿特利斯
-霓虹交汇点
-```
+也就是所有地图都会提供不止一条绕后切入方式。
 
-原因不是技术问题，而是目前没有为这些地图统一找到和 StatBanana 一样、**使用条件清晰且适合直接纳入 GitHub 项目**的实际俯视图资源。
+### 版本
 
-我没有用版权状态不明的搜索结果冒充可自由打包资源。
+这次属于功能更新：
 
-## GitHub 使用
-
-上传完整项目后，Actions 会执行：
-
-```text
-pip install openpyxl pillow
-python prepare_map_assets.py
-python build.py
-```
-
-并提交：
-
-```text
-assets/maps/real/*.png
-index.html
-```
-
-第一次 Action 成功后，你的仓库里会真正出现例如：
-
-```text
-assets/maps/real/kings-row.png
-assets/maps/real/gibraltar.png
-assets/maps/real/dorado.png
-...
-```
-
-之后网页会直接读这些本地文件。
-
-## 地图数据字段
-
-`maps` Sheet 现在包括：
-
-```text
-image_path
-image_credit
-image_source
-image_aspect
-image_fallback
-asset_status
-asset_provider
-```
-
-`asset_status` 可以直接看到该地图目前是：
-
-```text
-自动下载实际俯视图
-```
-
-还是：
-
-```text
-保留战术示意图
-```
-
-## 版本规则
-
-本次增加自动素材获取、派生处理、Actions 集成，属于功能级更新：
-
-```text
-v3.3.5 → v3.4.0
-```
+`v3.4.0 -> v3.5.0`

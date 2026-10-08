@@ -1,119 +1,162 @@
 {
-  "version": "v3.4.0",
+  "version": "v3.5.0",
   "license_note": "StatBanana states that its overhead maps may be used by coaches, writers and analysts for free works, asks that they not be redistributed unaltered, and requires the logo to remain or attribution to be shown.",
   "source_page": "https://overwatch.statbanana.com/images",
   "maps": [
     {
       "name": "国王大道",
       "slug": "kings-row",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/kings.png",
       "output": "assets/maps/real/kings-row.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "10If1ecmAW3c0CUpDaefyMwwgYWmsOp7d",
+      "download_url": "https://drive.usercontent.google.com/download?id=10If1ecmAW3c0CUpDaefyMwwgYWmsOp7d&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/kings.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "直布罗陀",
       "slug": "gibraltar",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/watchpoint.png",
       "output": "assets/maps/real/gibraltar.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1jo6V3YjmLjF32wEmtx9V00IuOuqnm1zA",
+      "download_url": "https://drive.usercontent.google.com/download?id=1jo6V3YjmLjF32wEmtx9V00IuOuqnm1zA&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/watchpoint.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "66号公路",
       "slug": "route-66",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/route.png",
       "output": "assets/maps/real/route-66.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "15HPRFGowqsQm_eJ_uEqPz-GW-OWvNuWo",
+      "download_url": "https://drive.usercontent.google.com/download?id=15HPRFGowqsQm_eJ_uEqPz-GW-OWvNuWo&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/route.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "渣客镇",
       "slug": "junkertown",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/junk.png",
       "output": "assets/maps/real/junkertown.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1tECichGmNZqEq7qNhZ2Wz21fCajRbUEo",
+      "download_url": "https://drive.usercontent.google.com/download?id=1tECichGmNZqEq7qNhZ2Wz21fCajRbUEo&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/junk.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "多拉多",
       "slug": "dorado",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/dorado.png",
       "output": "assets/maps/real/dorado.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1flxWL0plP_-2jy0-UrM9sEeBDGOWToxF",
+      "download_url": "https://drive.usercontent.google.com/download?id=1flxWL0plP_-2jy0-UrM9sEeBDGOWToxF&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/dorado.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "里阿尔托",
       "slug": "rialto",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/rialto.png",
       "output": "assets/maps/real/rialto.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1jrEJXl70oDUNqS1UGhlDJ4RfEVCq1dJ9",
+      "download_url": "https://drive.usercontent.google.com/download?id=1jrEJXl70oDUNqS1UGhlDJ4RfEVCq1dJ9&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/rialto.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "艾兴瓦尔德",
       "slug": "eichenwalde",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/eich.png",
       "output": "assets/maps/real/eichenwalde.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1d7FuLNZ-SOnTfsWcYsQQTK0oGuX5xiHf",
+      "download_url": "https://drive.usercontent.google.com/download?id=1d7FuLNZ-SOnTfsWcYsQQTK0oGuX5xiHf&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/eich.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "努巴尼",
       "slug": "numbani",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/numbani.png",
       "output": "assets/maps/real/numbani.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1iJYEVKqr1HwEXzfenplLIcHsedDpkGPV",
+      "download_url": "https://drive.usercontent.google.com/download?id=1iJYEVKqr1HwEXzfenplLIcHsedDpkGPV&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/numbani.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "好莱坞",
       "slug": "hollywood",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/holly.png",
       "output": "assets/maps/real/hollywood.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1nGxoje9NBkVIfTQanHNVG22sOnbPxhpE",
+      "download_url": "https://drive.usercontent.google.com/download?id=1nGxoje9NBkVIfTQanHNVG22sOnbPxhpE&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/holly.png",
+      "resolution": "5000x5000"
     },
     {
       "name": "伊利奥斯",
       "slug": "ilios",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/ilios.png",
       "output": "assets/maps/real/ilios.png",
       "aspect": "2/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1BBLG8y0GGxCLEW0FK0nopZ2ISXpPIHmk",
+      "download_url": "https://drive.usercontent.google.com/download?id=1BBLG8y0GGxCLEW0FK0nopZ2ISXpPIHmk&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/ilios.png",
+      "resolution": "10000x5000"
     },
     {
       "name": "漓江塔",
       "slug": "lijiang-tower",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/lijiang.png",
       "output": "assets/maps/real/lijiang-tower.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1fRXx6WFYdIieW8Ymfqbbj0MjhZwrFaOB",
+      "download_url": "https://drive.usercontent.google.com/download?id=1fRXx6WFYdIieW8Ymfqbbj0MjhZwrFaOB&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/lijiang.png",
+      "resolution": "10000x5000"
     },
     {
       "name": "尼泊尔",
       "slug": "nepal",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/nepal.png",
       "output": "assets/maps/real/nepal.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1DFXQmC1CAu-s-6SkpRqPY23P-x-Vj4Tg",
+      "download_url": "https://drive.usercontent.google.com/download?id=1DFXQmC1CAu-s-6SkpRqPY23P-x-Vj4Tg&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/nepal.png",
+      "resolution": "10000x5000"
     },
     {
       "name": "釜山",
       "slug": "busan",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/busan.png",
       "output": "assets/maps/real/busan.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "18BIEqEC5KtXscBPpm_XakGXzENJiClnZ",
+      "download_url": "https://drive.usercontent.google.com/download?id=18BIEqEC5KtXscBPpm_XakGXzENJiClnZ&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/busan.png",
+      "resolution": "10000x5000"
     },
     {
       "name": "绿洲",
       "slug": "oasis",
-      "url": "https://overwatch.statbanana.com/static/whitethumbnail/oasis.png",
       "output": "assets/maps/real/oasis.png",
       "aspect": "1/1",
-      "provider": "StatBanana / Coggle"
+      "provider": "StatBanana / Coggle",
+      "drive_file_id": "1si5G9Xtt-hfMG_QZpMMXBcnmUa4VBVXz",
+      "download_url": "https://drive.usercontent.google.com/download?id=1si5G9Xtt-hfMG_QZpMMXBcnmUa4VBVXz&export=download&confirm=t",
+      "fallback_preview": "https://overwatch.statbanana.com/static/whitethumbnail/oasis.png",
+      "resolution": "10000x5000"
     }
-  ]
+  ],
+  "quality_note": "Prefer the highest-resolution plain PNG source for every supported map."
 }
