@@ -1,0 +1,119 @@
+{
+  "version": "v3.4.0",
+  "license_note": "StatBanana states that its overhead maps may be used by coaches, writers and analysts for free works, asks that they not be redistributed unaltered, and requires the logo to remain or attribution to be shown.",
+  "source_page": "https://overwatch.statbanana.com/images",
+  "maps": [
+    {
+      "name": "国王大道",
+      "slug": "kings-row",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/kings.png",
+      "output": "assets/maps/real/kings-row.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "直布罗陀",
+      "slug": "gibraltar",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/watchpoint.png",
+      "output": "assets/maps/real/gibraltar.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "66号公路",
+      "slug": "route-66",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/route.png",
+      "output": "assets/maps/real/route-66.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "渣客镇",
+      "slug": "junkertown",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/junk.png",
+      "output": "assets/maps/real/junkertown.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "多拉多",
+      "slug": "dorado",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/dorado.png",
+      "output": "assets/maps/real/dorado.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "里阿尔托",
+      "slug": "rialto",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/rialto.png",
+      "output": "assets/maps/real/rialto.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "艾兴瓦尔德",
+      "slug": "eichenwalde",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/eich.png",
+      "output": "assets/maps/real/eichenwalde.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "努巴尼",
+      "slug": "numbani",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/numbani.png",
+      "output": "assets/maps/real/numbani.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "好莱坞",
+      "slug": "hollywood",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/holly.png",
+      "output": "assets/maps/real/hollywood.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "伊利奥斯",
+      "slug": "ilios",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/ilios.png",
+      "output": "assets/maps/real/ilios.png",
+      "aspect": "2/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "漓江塔",
+      "slug": "lijiang-tower",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/lijiang.png",
+      "output": "assets/maps/real/lijiang-tower.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "尼泊尔",
+      "slug": "nepal",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/nepal.png",
+      "output": "assets/maps/real/nepal.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "釜山",
+      "slug": "busan",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/busan.png",
+      "output": "assets/maps/real/busan.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    },
+    {
+      "name": "绿洲",
+      "slug": "oasis",
+      "url": "https://overwatch.statbanana.com/static/whitethumbnail/oasis.png",
+      "output": "assets/maps/real/oasis.png",
+      "aspect": "1/1",
+      "provider": "StatBanana / Coggle"
+    }
+  ]
+}

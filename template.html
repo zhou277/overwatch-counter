@@ -549,12 +549,27 @@ function bindRouteToggles(){
 
 
 function handleMapImageError(img){
+  const fallback=img.dataset.fallback||"";
+  const triedFallback=img.dataset.triedFallback==="1";
+
+  if(fallback && !triedFallback){
+    img.dataset.triedFallback="1";
+    img.src=fallback;
+    return;
+  }
+
   img.style.display="none";
   const stage=img.closest(".route-stage");
   if(!stage || stage.querySelector(".route-missing")) return;
+
   const box=document.createElement("div");
   box.className="route-missing";
-  box.innerHTML=`底图文件未找到。<br>请把下载的地图图片保存为<br><code>${esc(img.getAttribute("src")||"")}</code>`;
+
+  const localPath=img.dataset.local||img.getAttribute("src")||"";
+  box.innerHTML=`地图底图加载失败。<br>
+    本地文件：<code>${esc(localPath)}</code><br>
+    请确认该文件已上传到 GitHub 仓库。`;
+
   stage.prepend(box);
 }
 
@@ -581,7 +596,11 @@ function renderMapDetail(){
         ${routeLegend(routes)}
       </div>
       <div class="route-stage" style="aspect-ratio:${esc(m.imageAspect||"1/1")}">
-        ${hasImage?`<img src="${esc(m.image)}" alt="${esc(m.name)} 地图底图" onerror="handleMapImageError(this)">`:''}
+        ${hasImage?`<img src="${esc(m.image)}"
+          data-local="${esc(m.image)}"
+          data-fallback="${esc(m.imageFallback||"")}"
+          alt="${esc(m.name)} 地图底图"
+          onerror="handleMapImageError(this)">`:''}
         ${!hasImage?`<div class="route-grid"></div>`:''}
         ${routeSvg(routes)}
         ${!hasImage&&!hasRoutes?`<div class="route-empty">
