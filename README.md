@@ -1,6 +1,33 @@
 # Overwatch Counter
 
-当前版本：**v3.3.1**
+当前版本：**v3.3.2**
+
+## v3.3.2 更新
+
+本次按“方案 A”先完成 **国王大道** 的真实俯视图接入：
+
+- 底图改用 StatBanana / Coggle 制作的 King's Row overhead map
+- 使用官方公开的低分辨率 1000×1000 资源链接作为网页底图
+- 页面增加图片来源署名
+- 国王大道的主攻、Hotel 侧路和高台路线坐标按真实俯视图重新校准
+- 其余地图暂时继续使用 v3.3.1 的战术示意 SVG，便于逐张校准
+
+### 图片使用条件
+
+StatBanana 明确说明该系列地图可用于教练、分析与写作场景，但要求：
+
+- 不用于非免费的商业作品
+- 不原样重新分发
+- 保留 Logo，或在图片附近注明 `Overhead map courtesy of https://statbanana.com/`
+
+因此本项目 **不把原始 King's Row PNG 重新打包进仓库**，而是使用来源方托管的图片地址，并在地图下方显示 attribution。
+
+### 国王大道路线依据
+
+路线校准结合：
+
+- StatBanana King's Row 真实俯视图
+- OverwatchUniversity King's Row guide 中对第一点 main、Hotel、highground 的路径分析
 
 ## v3.3.1 更新
 
@@ -164,5 +191,5 @@ GitHub Actions 都会参与更新流程。
 本次新增地图 SVG 路线功能：
 
 ```text
-v3.3.0 → v3.3.1
+v3.3.1 → v3.3.2
 ```

@@ -309,6 +309,11 @@ button,input,select{touch-action:manipulation}
   .route-toggle{font-size:11px;padding:5px 8px}
 }
 
+
+.route-credit{margin-top:8px;font-size:11px;line-height:1.55;color:#7f8da3}
+.route-credit a{color:#8db9ff;text-decoration:none}
+.route-credit a:hover{text-decoration:underline}
+
 </style>
 </head>
 <body>
@@ -571,6 +576,7 @@ function renderMapDetail(){
         </div>`:''}
       </div>
       ${notes?`<div class="route-notes">${notes}</div>`:''}
+      ${m.imageCredit?`<div class="route-credit">${esc(m.imageCredit)}${m.imageSource?` · <a href="${esc(m.imageSource)}" target="_blank" rel="noopener">来源</a>`:""}</div>`:""}
     </div>
 
     <div class="role-sections">
