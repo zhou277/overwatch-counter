@@ -1,59 +1,44 @@
 # Overwatch Counter
 
-当前版本：**v3.8.0**
+当前版本：**v3.8.1**
 
-## v3.8.0 更新：英雄头像
+## v3.8.1 修复
 
-本版为全部 53 个英雄加入头像显示。
+修复英雄详情页顶部头像被拉成长条的问题。
 
-头像会出现在：
-
-- 左侧英雄列表
-- 当前英雄详情标题
-- 克制查询 Top 1 / Top 2 / Top 3
-- 地图 T / C / S 推荐英雄
-- 每套地图参考阵容的 5 个英雄
-
-## 数据维护
-
-`heroes` Sheet 新增：
+原因是 v3.8.0 中详情头像使用：
 
 ```text
-avatar_url
+hero-portrait detail
 ```
 
-每个英雄对应一条头像地址。
-
-当前头像使用 Blizzard 托管的 Overwatch 英雄 portrait CDN 地址。网页本身不打包几十张图片，因此项目体积基本不增加。
-
-如果某个头像网络加载失败，会自动退化为英雄名字首字符的本地占位头像，不会破坏页面布局。
-
-## 后续替换成本地头像
-
-如果以后希望完全离线，也可以把 `avatar_url` 改成：
+而页面主体本身已经存在：
 
 ```text
-assets/heroes/genji.webp
-assets/heroes/ana.webp
-...
+.detail
 ```
 
-网页代码不需要再修改。
+样式，其中包含较大的 `min-height` 和 `padding`，导致图片同时继承了详情面板样式。
 
-## 自动构建
-
-仍然保持：
+本版已经把头像尺寸类改成：
 
 ```text
-data.xlsx
-→ build.py
-→ index.html
+profile
 ```
+
+并明确锁定：
+
+- 桌面：72 × 72
+- 手机：56 × 56
+- `aspect-ratio: 1 / 1`
+- `object-fit: cover`
+- 禁止 flex 拉伸
+- 清除额外 padding / margin
+
+因此英雄详情顶部头像现在会保持正常的圆角方形比例。
 
 ## 版本
 
-本次增加完整英雄头像系统，属于功能更新：
-
 ```text
-v3.7.0 → v3.8.0
+v3.8.0 → v3.8.1
 ```

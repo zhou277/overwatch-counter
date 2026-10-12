@@ -6,7 +6,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" type="image/svg+xml" />
 <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2310151f%22%2F%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%227%22%20stroke-dasharray%3D%2288%2030%22%20transform%3D%22rotate%28-42%2032%2032%29%22%2F%3E%0A%3Cpath%20d%3D%22M19%2036%20L30%2023%20L30%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M45%2036%20L34%2023%20L34%2036%20Z%22%20fill%3D%22%23f99e1a%22%2F%3E%0A%3Cpath%20d%3D%22M23%2043%20L32%2034%20L41%2043%22%20fill%3D%22none%22%20stroke%3D%22%23e9edf4%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" />
-<title>守望先锋英雄克制查询 v3.8.0</title>
+<title>守望先锋英雄克制查询 v3.8.1</title>
 <style>
 :root{
   --bg:#0f1219; --panel:#181d27; --panel2:#202735; --text:#edf2f7;
@@ -289,7 +289,7 @@ button,input,select{touch-action:manipulation}
 
 
 
-/* v3.8.0: 克制查询改为三个横向区域 */
+/* v3.8.1: 克制查询改为三个横向区域 */
 @media(min-width:851px){
   .matchup-roles{display:flex!important;flex-direction:column!important;gap:14px!important}
   .matchup-role{
@@ -322,21 +322,51 @@ button,input,select{touch-action:manipulation}
 @media(max-width:850px){.map-comp-grid{grid-template-columns:1fr}}
 
 
-/* v3.8.0 hero avatars */
+/* v3.8.1 hero avatars */
 .hero-portrait{display:block;object-fit:cover;object-position:center;background:#202938;border:1px solid #3b4659;flex:0 0 auto}
 .hero-portrait.list{width:36px;height:36px;border-radius:9px;margin-right:10px}
-.hero-portrait.detail{width:66px;height:66px;border-radius:16px}
+.hero-portrait.profile{width:72px;height:72px;min-width:72px;min-height:72px;max-width:72px;max-height:72px;aspect-ratio:1/1;border-radius:16px;padding:0;flex:0 0 72px;object-fit:cover;object-position:center}
 .hero-portrait.rank{width:42px;height:42px;border-radius:10px}
 .hero-portrait.tag{width:25px;height:25px;border-radius:7px;border-color:#46536a}
 .hero-avatar-fallback{display:inline-flex;align-items:center;justify-content:center;background:#202938;border:1px solid #3b4659;color:#aeb9ca;font-weight:800;flex:0 0 auto}
 .hero-avatar-fallback.list{width:36px;height:36px;border-radius:9px;margin-right:10px;font-size:12px}
-.hero-avatar-fallback.detail{width:66px;height:66px;border-radius:16px;font-size:18px}
+.hero-avatar-fallback.profile{width:72px;height:72px;min-width:72px;min-height:72px;max-width:72px;max-height:72px;aspect-ratio:1/1;border-radius:16px;font-size:18px;padding:0;flex:0 0 72px}
 .hero-avatar-fallback.rank{width:42px;height:42px;border-radius:10px;font-size:12px}
 .hero-avatar-fallback.tag{width:25px;height:25px;border-radius:7px;font-size:9px}
 .hero-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px 4px 5px;border-radius:999px;background:#202938;border:1px solid #3a465a;color:#dbe4f0;font-size:12px}
 .rank-item{align-items:flex-start}
 .rank-content{min-width:0;flex:1}
 .rank-main{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+
+
+/* v3.8.1: prevent hero profile avatar from inheriting .detail panel styles */
+.hero-head>.hero-portrait.profile,
+.hero-head>.hero-avatar-fallback.profile{
+  box-sizing:border-box;
+  width:72px!important;
+  height:72px!important;
+  min-width:72px!important;
+  min-height:72px!important;
+  max-width:72px!important;
+  max-height:72px!important;
+  flex:0 0 72px!important;
+  padding:0!important;
+  margin:0!important;
+  aspect-ratio:1/1;
+}
+@media(max-width:850px){
+  .hero-head>.hero-portrait.profile,
+  .hero-head>.hero-avatar-fallback.profile{
+    width:56px!important;
+    height:56px!important;
+    min-width:56px!important;
+    min-height:56px!important;
+    max-width:56px!important;
+    max-height:56px!important;
+    flex-basis:56px!important;
+    border-radius:13px;
+  }
+}
 
 </style>
 </head>
@@ -345,7 +375,7 @@ button,input,select{touch-action:manipulation}
 <header>
   <div>
     <h1>守望先锋英雄克制查询</h1>
-    <div class="subtitle">v3.8.0 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
+    <div class="subtitle">v3.8.1 · 查询英雄克制关系，也可以按地图查看推荐英雄与参考阵容</div>
   </div>
 </header>
 
@@ -503,7 +533,7 @@ function renderDetail(){
 
   root.innerHTML=`
     <div class="hero-head">
-      ${avatarMarkup(h.name,"detail")}
+      ${avatarMarkup(h.name,"profile")}
       <div>
         <div class="hero-name">${esc(h.name)}</div>
         <div class="badge">${h.role==="坦克"?"T · 坦克":h.role==="输出"?"C · 输出":"S · 辅助"}</div>
