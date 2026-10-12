@@ -38,6 +38,7 @@ def main():
             "name":clean(r["name"]),
             "aliases":[x.strip() for x in clean(r["aliases"]).split(",") if x.strip()],
             "role":ROLE_CN.get(clean(r["role"]).upper(),clean(r["role"])),
+            "avatar":clean(r.get("avatar_url","")),
             "strong":[],"weak":[],"note":clean(r["note"])
         })
 
@@ -98,7 +99,7 @@ def main():
     output=output.replace("__MAPS_JSON__",json.dumps(maps,ensure_ascii=False,separators=(",",":")))
     output=output.replace("__TOP10_HTML__","\n".join(tip_card(int(t["rank"]),clean(t["text"]),True) for t in tips if int(t["rank"])<=10))
     output=output.replace("__TOPREST_HTML__","\n".join(tip_card(int(t["rank"]),clean(t["text"]),False) for t in tips if int(t["rank"])>10))
-    output=output.replace("__VERSION__",settings.get("version","v3.7.0"))
+    output=output.replace("__VERSION__",settings.get("version","v3.8.0"))
     OUTPUT.write_text(output,encoding="utf-8")
     print(f"Generated {OUTPUT.name}: {len(heroes)} heroes, {len(counters)} counters, {len(maps)} maps, {sum(len(m['comps']) for m in maps)} map comps")
 

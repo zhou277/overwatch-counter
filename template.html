@@ -321,6 +321,23 @@ button,input,select{touch-action:manipulation}
 .map-comp-info b{display:block;color:#f1f5f9;margin-bottom:3px;font-size:12px}
 @media(max-width:850px){.map-comp-grid{grid-template-columns:1fr}}
 
+
+/* v3.8.0 hero avatars */
+.hero-portrait{display:block;object-fit:cover;object-position:center;background:#202938;border:1px solid #3b4659;flex:0 0 auto}
+.hero-portrait.list{width:36px;height:36px;border-radius:9px;margin-right:10px}
+.hero-portrait.detail{width:66px;height:66px;border-radius:16px}
+.hero-portrait.rank{width:42px;height:42px;border-radius:10px}
+.hero-portrait.tag{width:25px;height:25px;border-radius:7px;border-color:#46536a}
+.hero-avatar-fallback{display:inline-flex;align-items:center;justify-content:center;background:#202938;border:1px solid #3b4659;color:#aeb9ca;font-weight:800;flex:0 0 auto}
+.hero-avatar-fallback.list{width:36px;height:36px;border-radius:9px;margin-right:10px;font-size:12px}
+.hero-avatar-fallback.detail{width:66px;height:66px;border-radius:16px;font-size:18px}
+.hero-avatar-fallback.rank{width:42px;height:42px;border-radius:10px;font-size:12px}
+.hero-avatar-fallback.tag{width:25px;height:25px;border-radius:7px;font-size:9px}
+.hero-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px 4px 5px;border-radius:999px;background:#202938;border:1px solid #3a465a;color:#dbe4f0;font-size:12px}
+.rank-item{align-items:flex-start}
+.rank-content{min-width:0;flex:1}
+.rank-main{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+
 </style>
 </head>
 <body>
@@ -390,6 +407,25 @@ let selected = heroes[0];
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
 
 
+
+const heroByName=Object.fromEntries(heroes.map(h=>[h.name,h]));
+
+function avatarMarkup(name,size="list"){
+  const hero=heroByName[name]||{};
+  const url=hero.avatar||"";
+  const initial=String(name||"?").slice(0,1);
+  if(!url){
+    return `<span class="hero-avatar-fallback ${size}">${esc(initial)}</span>`;
+  }
+  return `<img class="hero-portrait ${size}" src="${esc(url)}" alt="${esc(name)} 头像"
+    loading="lazy"
+    onerror="this.outerHTML='<span class=&quot;hero-avatar-fallback ${size}&quot;>${esc(initial)}</span>'">`;
+}
+
+function heroChip(name){
+  return `<span class="hero-chip">${avatarMarkup(name,"tag")}<span>${esc(name)}</span></span>`;
+}
+
 function matches(h,q){
   q=q.trim().toLowerCase();
   if(!q) return true;
@@ -405,6 +441,7 @@ function renderList(){
   root.innerHTML=list.map((h,i)=>`
     <div class="hero-item ${selected&&selected.name===h.name?'active':''}" data-name="${esc(h.name)}">
       <div class="hero-item-left">
+        ${avatarMarkup(h.name,"list")}
         <span class="hero-item-name">${esc(h.name)}</span>
       </div>
       <span class="role-pill ${h.role==="坦克"?"role-tank":h.role==="输出"?"role-dps":"role-support"}">${h.role==="坦克"?"T 坦克":h.role==="输出"?"C 输出":"S 辅助"}</span>
@@ -434,6 +471,7 @@ function renderDetail(){
         ${list.map((x,i)=>`
           <div class="rank-item">
             <span class="rank-num">${i+1}</span>
+            ${avatarMarkup(x.name,"rank")}
             <div class="rank-content">
               <div class="rank-name">${esc(x.name)}</div>
               <div class="rank-reason">${esc(x.reason)}</div>
@@ -445,7 +483,7 @@ function renderDetail(){
 
   root.innerHTML=`
     <div class="hero-head">
-      <div class="avatar">${h.role==="坦克"?"T":h.role==="输出"?"C":"S"}</div>
+      ${avatarMarkup(h.name,"detail")}
       <div>
         <div class="hero-name">${esc(h.name)}</div>
         <div class="badge">${h.role==="坦克"?"T · 坦克":h.role==="输出"?"C · 输出":"S · 辅助"}</div>
@@ -486,7 +524,7 @@ function renderMaps(){
 
 function renderMapDetail(){
   const m=selectedMap;
-  const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+  const tags=a=>a.map(x=>heroChip(x)).join("");
   const comps=(m.comps||[]).map(c=>`
     <div class="map-comp-card">
       <div class="map-comp-head">
