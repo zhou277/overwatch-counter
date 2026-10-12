@@ -289,7 +289,7 @@ button,input,select{touch-action:manipulation}
 
 
 
-/* v3.6.1: 克制查询改为三个横向区域 */
+/* __VERSION__: 克制查询改为三个横向区域 */
 @media(min-width:851px){
   .matchup-roles{display:flex!important;flex-direction:column!important;gap:14px!important}
   .matchup-role{
@@ -308,6 +308,18 @@ button,input,select{touch-action:manipulation}
   .matchup-role{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
   .matchup-rank{display:grid!important;grid-template-columns:1fr!important}
 }
+
+
+.map-comp-list{display:grid;gap:14px;margin-top:14px}
+.map-comp-card{background:#121823;border:1px solid var(--line);border-radius:14px;padding:16px}
+.map-comp-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.map-comp-name{font-size:15px;font-weight:800;color:#eef4fb}
+.map-comp-rank{font-size:11px;font-weight:800;color:#a8b5c8;background:#202939;border:1px solid #344157;padding:4px 8px;border-radius:999px}
+.map-comp-lineup{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.map-comp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.map-comp-info{background:#181f2c;border:1px solid #2d3748;border-radius:10px;padding:10px 11px;color:#cbd4e2;line-height:1.7;font-size:13px}
+.map-comp-info b{display:block;color:#f1f5f9;margin-bottom:3px;font-size:12px}
+@media(max-width:850px){.map-comp-grid{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -475,6 +487,20 @@ function renderMaps(){
 function renderMapDetail(){
   const m=selectedMap;
   const tags=a=>a.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+  const comps=(m.comps||[]).map(c=>`
+    <div class="map-comp-card">
+      <div class="map-comp-head">
+        <div class="map-comp-name">${esc(c.name)}</div>
+        <div class="map-comp-rank">方案 ${esc(c.rank)}</div>
+      </div>
+      <div class="map-comp-lineup">${tags(c.lineup||[])}</div>
+      <div class="map-comp-grid">
+        <div class="map-comp-info"><b>适用场景</b>${esc(c.useWhen)}</div>
+        <div class="map-comp-info"><b>核心打法</b>${esc(c.corePlay)}</div>
+        <div class="map-comp-info"><b>开团方式</b>${esc(c.engage)}</div>
+        <div class="map-comp-info"><b>注意点</b>${esc(c.caution)}</div>
+      </div>
+    </div>`).join("");
 
   document.getElementById("mapDetail").innerHTML=`
     <div class="hero-head">
@@ -490,24 +516,20 @@ function renderMapDetail(){
         <h3><span class="role-icon">T</span> 坦克推荐</h3>
         <div class="tags">${tags(m.tank)}</div>
       </div>
-
       <div class="role-section dps">
         <h3><span class="role-icon">C</span> 输出推荐</h3>
         <div class="tags">${tags(m.dps)}</div>
       </div>
-
       <div class="role-section support">
         <h3><span class="role-icon">S</span> 辅助推荐</h3>
         <div class="tags">${tags(m.support)}</div>
       </div>
     </div>
 
-    <div class="card" style="margin-top:14px">
-      <h3>参考阵容</h3>
-      <div class="reason">${esc(m.comp)}</div>
-    </div>
+    <div class="matchup-title" style="color:#e7edf5">参考阵容与打法</div>
+    <div class="map-comp-list">${comps || '<div class="empty">暂无参考阵容</div>'}</div>
 
-    <div class="note"><b>阵容思路：</b>${esc(m.reason)}</div>
+    <div class="note"><b>地图总体思路：</b>${esc(m.reason)}</div>
   `;
 }
 
